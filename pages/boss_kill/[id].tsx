@@ -1,24 +1,42 @@
 import { boss_kills_players } from '@/prisma/bosskills';
+import { matchClassColor } from '@/styles/colors';
 import { get_boss_kill_players } from '@/utils/bosskills.db';
 import { useRouter } from 'next/router';
+import "@/app/globals.css"
 
 
 type Props = {
   boss_kill_players: boss_kills_players[]
 }
 
-export default function Page(props: any) {
+export default function Page(props: Props) {
+
+  const calculatePercentDamage = (total: number, fragment: number) => {
+    return ((fragment / total) * 100).toString();
+  }
+
+  const calculateTotalDamage = () => {
+    let total = 0
+    for (let i = 0; i < props.boss_kill_players.length; i++) {
+      total =+ parseInt(props.boss_kill_players[i].dmgDone.toString())
+    }
+    return total
+  }
+
   return (
     <>
       {(props !== undefined && props.boss_kill_players !== undefined) &&
       <> 
-        {props.boss_kill_players.map((player: boss_kills_players, index: any) => {
+        {props.boss_kill_players.sort((x, y) => (parseInt(y.dmgDone.toString()) - parseInt(x.dmgDone.toString()))).map((player: boss_kills_players, index: any) => {
             return (
-              <div key={index} className='flex flex-wrap gap-3'>
-                <p>{player.id?.toString()}</p>
-                <p>{player.dmgDone?.toString()}</p>
-                <p>{player.talent_spec?.toString()}</p>
-              </div>
+                    <div key={index} className="m-1 p-1">
+                        <div>{player.guid}</div>
+                        <div>{player.talent_spec}</div>
+                        <div>{player.dmgDone.toString()}</div>
+                        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                            <div className="text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style={{width: (index === 0) ? '100%' : (calculatePercentDamage(calculateTotalDamage(), parseInt(player.dmgDone.toString())) + '%'), backgroundColor: matchClassColor(player.talent_spec.toString())}}>{player.dmgDone.toString()}</div>
+                        </div>
+                    </div>
             );
           }
       )}

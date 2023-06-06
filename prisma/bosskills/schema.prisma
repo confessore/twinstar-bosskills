@@ -1,0 +1,161 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./bosskills"
+  binaryTargets = ["native", "darwin-arm64", "rhel-openssl-1.0.x"]
+}
+
+datasource logs {
+  provider = "mysql"
+  url      = env("BOSSKILLS_DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model boss_kills {
+  id                 Int                  @id @default(autoincrement())
+  reserver           Int?                 @logs.UnsignedInt
+  entry              Int                  @default(0) @logs.UnsignedInt
+  map                String               @default("") @logs.VarChar(100)
+  mode               Int                  @default(0) @logs.UnsignedInt
+  guild              String               @default("") @logs.VarChar(100)
+  time               DateTime?            @logs.Timestamp(0)
+  realm              Int                  @default(0) @logs.UnsignedInt
+  length             Int                  @default(0)
+  wipes              Int                  @default(0) @logs.UnsignedSmallInt
+  deaths             Int                  @default(0)
+  ressUsed           Int                  @default(0) @logs.TinyInt
+  progressLenght     Int                  @default(0)
+  hidden             Boolean              @default(false)
+  cleanupDisabled    Boolean              @default(false)
+  instanceId         Int                  @default(0)
+  newGuildName       String?              @logs.VarChar(24)
+  boss_kills_deaths  boss_kills_deaths[]
+  boss_kills_loot    boss_kills_loot[]    @ignore
+  boss_kills_maps    boss_kills_maps[]
+  boss_kills_players boss_kills_players[]
+
+  @@index([entry], map: "idx_entry")
+  @@index([guild], map: "idx_guild")
+  @@index([map], map: "idx_map")
+  @@index([mode], map: "idx_mode")
+  @@index([realm], map: "idx_realm")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model boss_kills_deaths {
+  id         Int
+  guid       Int        @default(0) @logs.UnsignedInt
+  time       Int        @default(0)
+  boss_kills boss_kills @relation(fields: [id], references: [id], onDelete: Cascade, map: "boss_kills_deaths_ibfk_1")
+
+  @@id([id, guid, time])
+  @@index([guid], map: "guid")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model boss_kills_loot {
+  id               Int
+  itemId           Int        @default(0) @logs.UnsignedInt
+  count            Int        @default(0) @logs.UnsignedSmallInt
+  randomPropertyId Int        @default(0)
+  randomSuffixId   Int        @default(0) @logs.UnsignedInt
+  boss_kills       boss_kills @relation(fields: [id], references: [id], onDelete: Cascade, map: "boss_kills_loot_ibfk_1")
+
+  @@index([id], map: "id")
+  @@index([itemId], map: "itemId")
+  @@ignore
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model boss_kills_maps {
+  id              Int
+  time            Int        @default(0) @logs.UnsignedInt
+  encounterDamage BigInt     @default(0) @logs.UnsignedBigInt
+  encounterHeal   BigInt     @default(0) @logs.UnsignedBigInt
+  raidDamage      BigInt     @default(0) @logs.UnsignedBigInt
+  raidHeal        BigInt     @default(0) @logs.UnsignedBigInt
+  boss_kills      boss_kills @relation(fields: [id], references: [id], onDelete: Cascade, map: "boss_kills_map_ibfk_1")
+
+  @@id([id, time])
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model boss_kills_players {
+  id              Int
+  guid            Int        @default(0) @logs.UnsignedInt
+  talent_spec     Int        @default(0) @logs.UnsignedSmallInt
+  avg_item_lvl    Float      @default(0) @logs.Float
+  dmgDone         BigInt     @default(0) @logs.UnsignedBigInt
+  healingDone     BigInt     @default(0) @logs.UnsignedBigInt
+  overhealingDone BigInt     @default(0)
+  absorbDone      BigInt     @default(0)
+  dmgTaken        BigInt     @default(0) @logs.UnsignedBigInt
+  dmgAbsorbed     BigInt     @default(0)
+  healingTaken    BigInt     @default(0) @logs.UnsignedBigInt
+  usefullTime     Int        @default(0)
+  dispels         Int        @default(0) @logs.UnsignedInt
+  interrupts      Int        @default(0) @logs.UnsignedInt
+  hidden          Boolean    @default(false)
+  boss_kills      boss_kills @relation(fields: [id], references: [id], onDelete: Cascade, map: "boss_kills_players_ibfk_1")
+
+  @@id([id, guid])
+  @@index([guid], map: "guid")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model boss_kills_progress {
+  mode     Int       @default(0) @logs.UnsignedInt
+  season   Int       @default(0) @logs.UnsignedInt
+  position Int       @default(0) @logs.TinyInt
+  progress Int       @default(0)
+  finished DateTime? @logs.Timestamp(0)
+  guild    String?   @logs.VarChar(100)
+  realm    Int       @default(0) @logs.UnsignedInt
+  raid1    Int       @default(0)
+  raid2    Int       @default(0)
+  raid3    Int       @default(0)
+
+  @@ignore
+}
+
+model boss_kills_progress_cache {
+  season     Int       @default(0)
+  mode       Int       @default(0) @logs.UnsignedInt
+  entry      Int       @default(0) @logs.UnsignedInt
+  position   Int       @default(0)
+  guild      String?   @logs.VarChar(100)
+  first_kill DateTime? @logs.Timestamp(0)
+  realm      Int       @default(0) @logs.UnsignedInt
+  length     Int       @default(0)
+  kill_id    Int?      @default(0)
+
+  @@id([season, mode, entry, position, realm])
+}
+
+model boss_kills_rankings_guild {
+  season  Int     @default(0)
+  mode    Int     @default(0) @logs.UnsignedInt
+  ranking Int     @default(0)
+  guild   String? @logs.VarChar(100)
+  points  Int     @default(0)
+  realm   Int     @default(0)
+
+  @@id([season, mode, ranking, realm])
+  @@index([guild], map: "idx_guild")
+}
+
+model boss_kills_rankings_guild_cache {
+  id      Int       @id
+  entry   Int?      @logs.UnsignedInt
+  mode    Int?      @logs.UnsignedInt
+  guild   String?   @logs.VarChar(100)
+  time    DateTime? @logs.Timestamp(0)
+  realm   Int?      @logs.UnsignedInt
+  length  Int       @default(0)
+  points  Int       @default(0)
+  ranking Int       @default(0)
+  season  Int       @default(0)
+
+  @@index([entry], map: "idx_entry")
+  @@index([guild], map: "idx_guild")
+  @@index([realm], map: "idx_realm")
+}

@@ -20,6 +20,18 @@ module.exports = {
         cyan: '#79FFE1',
         'blue-500': '#2276FC',
         'yellow-100': '#fef7da',
+        transparent: 'transparent',
+        current: 'currentColor',
+        'DEATHKNIGHT': '#c41e3a',
+        'DRUID': '#ff7d0a',
+        'HUNTER': '#abd473',
+        'MAGE': '#69ccf0',
+        'PALADIN': '#f58cba',
+        'PRIEST': '#ffffff',
+        'ROGUE': '#fff569',
+        'SHAMAN': '#0070de',
+        'WARLOCK': '#9482c9',
+        'WARRIOR': '#c79c6e',
       },
       gridTemplateColumns: {
         // Complex site-secific column configuration

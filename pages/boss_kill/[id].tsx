@@ -18,7 +18,7 @@ export default function Page(props: Props) {
   const calculateTotalDamage = () => {
     let total = 0
     for (let i = 0; i < props.boss_kill_players.length; i++) {
-      total =+ parseInt(props.boss_kill_players[i].dmgDone.toString())
+      total += parseInt(props.boss_kill_players[i].dmgDone.toString())
     }
     return total
   }
@@ -31,9 +31,9 @@ export default function Page(props: Props) {
         {props.boss_kill_players.sort((x, y) => (parseInt(y.dmgDone.toString()) - parseInt(x.dmgDone.toString()))).map((player: boss_kills_players, index: any) => {
             return (
               <div key={index} className="m-1 p-1">
-                  <div>{player.guid}</div>
+                  <div>guid: {player.guid}</div>
                   <div className="bg-gray-200 rounded-full dark:bg-gray-700">
-                      <div className="text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style={{width: (calculatePercentDamage(calculateTotalDamage(), parseInt(player.dmgDone.toString())) + '%'), backgroundColor: matchClassColor(parse_class(parseInt(player.talent_spec.toString())))}}>{player.dmgDone.toString()}</div>
+                      <div className="text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style={{width: (calculatePercentDamage(calculateTotalDamage(), parseInt(player.dmgDone.toString())) + '%'), backgroundColor: matchClassColor(parse_class(parseInt(player.talent_spec.toString())))}}>{player.dmgDone.toString()}{parse_class(parseInt(player.talent_spec.toString()))}{parseInt(player.talent_spec.toString())}</div>
                   </div>
               </div>
             );

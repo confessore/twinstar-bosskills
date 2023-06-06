@@ -1,5 +1,5 @@
 import './globals.css'
-import { Akshar } from '@next/font/google'
+import { Akshar } from 'next/font/google'
 
 const akshar = Akshar({ subsets: ['latin'] })
 

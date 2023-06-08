@@ -9,8 +9,8 @@ export const metadata = {
   description: "",
 };
 
-const main = `${akshar.className} flex flex-col justify-around items-center min-w-full min-h-screen bg-amber-200 text-yellow-900 opacity-90`;
-const main_dark = `dark:bg-amber-900 dark:text-yellow-200`;
+const main = `${akshar.className} flex flex-col min-w-full min-h-screen bg-amber-300 text-amber-800 opacity-90`;
+const main_dark = `dark:bg-amber-800 dark:text-amber-300`;
 
 export default function RootLayout({
   children,
@@ -20,12 +20,13 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body className={akshar.className}>
-          <Header />
-          <div className={`${main} ${main_dark}`}>
-            <div className="pt-20">{children}</div>
+        <>
+          <meta name="format-detection" content="telephone=no" />
+          <div className={`${main} ${main_dark} ${akshar.className}`}>
+            <Header />
+            <div className="">{children}</div>
           </div>
-        </body>
+        </>
       </html>
     </>
   );

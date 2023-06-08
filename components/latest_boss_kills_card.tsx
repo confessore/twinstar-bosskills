@@ -15,7 +15,7 @@ export default function LatestBossKillsCard(props: Props) {
         prefetch={false}
       >
         <div className="flex text-start mx-1 px-1">
-          {props.boss_kills.id?.toString()} slain by {" "}
+          {props.boss_kills.id?.toString()} slain by{" "}
           {props.boss_kills.guild?.toString()}
         </div>
         <div className="flex text-start mx-1 px-1">

@@ -8,11 +8,12 @@ type Props = {
 };
 
 export default function HealingDoneWidget(props: Props) {
-  let [boss_kills_players] = useState(props.boss_kills_players.sort(
-    (x, y) =>
-      parseInt(y.healingDone.toString()) -
-      parseInt(x.healingDone.toString())
-  ));
+  let [boss_kills_players] = useState(
+    props.boss_kills_players.sort(
+      (x, y) =>
+        parseInt(y.healingDone.toString()) - parseInt(x.healingDone.toString())
+    )
+  );
   const calculatePercentHealing = (total: number, fragment: number) => {
     return ((fragment / total) * 100).toString();
   };
@@ -22,8 +23,8 @@ export default function HealingDoneWidget(props: Props) {
       {props !== undefined && boss_kills_players !== undefined && (
         <div className="flex flex-col justify-center items-center m-1 p-1">
           <p>Healing Done</p>
-          {boss_kills_players
-            .map((boss_kills_player: boss_kills_players, index: any) => {
+          {boss_kills_players.map(
+            (boss_kills_player: boss_kills_players, index: any) => {
               return (
                 <HealingDoneBar
                   key={index}
@@ -40,7 +41,8 @@ export default function HealingDoneWidget(props: Props) {
                   }
                 />
               );
-            })}
+            }
+          )}
         </div>
       )}
     </div>

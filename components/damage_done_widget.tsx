@@ -12,7 +12,7 @@ export default function DamageDoneWidget(props: Props) {
       (x, y) => parseInt(y.dmgDone.toString()) - parseInt(x.dmgDone.toString())
     )
   );
-  const calculatePercentDamage = (total: number, fragment: number) => {
+  const calculatePercentDamageDone = (total: number, fragment: number) => {
     return ((fragment / total) * 100).toString();
   };
   const calculateTotalDamage = () => {
@@ -37,7 +37,7 @@ export default function DamageDoneWidget(props: Props) {
                   width_percent={
                     index === 0
                       ? "100%"
-                      : calculatePercentDamage(
+                      : calculatePercentDamageDone(
                           parseInt(boss_kills_players[0].dmgDone.toString()),
                           parseInt(boss_kills_player.dmgDone.toString())
                         ) + "%"

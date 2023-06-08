@@ -6,6 +6,7 @@ import Layout from "@/components/layout";
 import DamageDoneBar from "@/components/damage_done_bar";
 import DamageDoneWidget from "@/components/damage_done_widget";
 import HealingDoneWidget from "@/components/healing_done_widget";
+import DamageTakenWidget from "@/components/damage_taken_widget";
 
 type Props = {
   boss_kills_players: boss_kills_players[];
@@ -18,6 +19,7 @@ export default function Page(props: Props) {
         <div className="flex flex-wrap m-1 p-1">
           <DamageDoneWidget boss_kills_players={props.boss_kills_players} />
           <HealingDoneWidget boss_kills_players={props.boss_kills_players} />
+          <DamageTakenWidget boss_kills_players={props.boss_kills_players} />
         </div>
       )}
     </Layout>

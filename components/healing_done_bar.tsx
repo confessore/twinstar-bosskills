@@ -14,9 +14,9 @@ type Props = {
 
 export default function HealingDoneBar(props: Props) {
   return (
-    <div className="w-72 bg-amber-200 m-1 p-1">
+    <div className="w-72 m-1 p-1">
       <div>guid: {props.boss_kills_player.guid}</div>
-      <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700">
+      <div className="h-3 bg-gray-300 rounded-full dark:bg-gray-700">
         <div
           className="h-3 text-xs font-medium text-blue-200 text-center p-0.5 leading-none rounded-full"
           style={{
@@ -30,7 +30,7 @@ export default function HealingDoneBar(props: Props) {
         ></div>
       </div>
       <div>
-        {props.boss_kills_player.healingDone.toString()}
+        <p>{props.boss_kills_player.healingDone.toString()}</p>
       </div>
     </div>
   );

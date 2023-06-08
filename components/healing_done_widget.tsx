@@ -1,17 +1,18 @@
 import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
 import DamageDoneBar from "./damage_done_bar";
 import HealingDoneBar from "./healing_done_bar";
+import { useState } from "react";
 
 type Props = {
   boss_kills_players: boss_kills_players[];
 };
 
 export default function HealingDoneWidget(props: Props) {
-  let boss_kills_players = props.boss_kills_players.sort(
+  let [boss_kills_players] = useState(props.boss_kills_players.sort(
     (x, y) =>
       parseInt(y.healingDone.toString()) -
       parseInt(x.healingDone.toString())
-  );
+  ));
   const calculatePercentHealing = (total: number, fragment: number) => {
     return ((fragment / total) * 100).toString();
   };

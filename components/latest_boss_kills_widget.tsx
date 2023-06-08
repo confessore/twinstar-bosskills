@@ -8,9 +8,9 @@ type Props = {
 
 export default function LatestBossKillsWidget(props: Props) {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex w-96 justify-center items-center m-1 p-1">
       {props !== undefined && props.latest_boss_kills !== undefined && (
-        <div className="flex flex-col m-1 p-1 w-64 justify-center items-center">
+        <div className="flex flex-col justify-center items-center m-1 p-1">
           {props.latest_boss_kills.map((boss_kills, index) => {
             if (!boss_kills.hidden) {
               return (

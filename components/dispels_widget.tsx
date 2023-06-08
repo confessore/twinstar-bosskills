@@ -1,48 +1,48 @@
 import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
 import DamageDoneBar from "./damage_done_bar";
+import HealingDoneBar from "./healing_done_bar";
 import { useState } from "react";
+import HealingTakenBar from "./healing_taken_bar";
+import InterruptsBar from "./interrupts_bar";
+import DispelsBar from "./dispels_bar";
 
 type Props = {
   boss_kills_players: boss_kills_players[];
 };
 
-export default function DamageDoneWidget(props: Props) {
+export default function DispelsWidget(props: Props) {
   let [boss_kills_players] = useState(
     props.boss_kills_players.sort(
-      (x, y) => parseInt(y.dmgDone.toString()) - parseInt(x.dmgDone.toString())
+      (x, y) =>
+        parseInt(y.dispels.toString()) - parseInt(x.dispels.toString())
     )
   );
-  const calculatePercentDamageDone = (total: number, fragment: number) => {
+  const calculatePercentDispels = (total: number, fragment: number) => {
     return ((fragment / total) * 100).toString();
-  };
-  const calculateTotalDamage = () => {
-    let total = 0;
-    for (let i = 0; i < props.boss_kills_players.length; i++) {
-      total += parseInt(props.boss_kills_players[i].dmgDone.toString());
-    }
-    return total;
   };
 
   return (
     <div className="flex w-72 justify-center items-center m-1 p-1">
       {props !== undefined && boss_kills_players !== undefined && (
         <div className="flex flex-col justify-center items-center m-1 p-1">
-          <p>Damage Done</p>
+          <p>Dispels</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
-              if (parseInt(boss_kills_player.dmgDone.toString()) === 0) {
+              if (parseInt(boss_kills_player.dispels.toString()) === 0) {
                 return;
               }
               return (
-                <DamageDoneBar
+                <DispelsBar
                   key={index}
                   boss_kills_player={boss_kills_player}
                   width_percent={
                     index === 0
                       ? "100%"
-                      : calculatePercentDamageDone(
-                          parseInt(boss_kills_players[0].dmgDone.toString()),
-                          parseInt(boss_kills_player.dmgDone.toString())
+                      : calculatePercentDispels(
+                          parseInt(
+                            boss_kills_players[0].dispels.toString()
+                          ),
+                          parseInt(boss_kills_player.dispels.toString())
                         ) + "%"
                   }
                 />

@@ -25,6 +25,9 @@ export default function HealingDoneWidget(props: Props) {
           <p>Healing Done</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
+              if (parseInt(boss_kills_player.healingDone.toString()) === 0) {
+                return;
+              }
               return (
                 <HealingDoneBar
                   key={index}

@@ -32,6 +32,9 @@ export default function DamageTakenWidget(props: Props) {
           <p>Damage Taken</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
+                if (parseInt(boss_kills_player.dmgTaken.toString()) === 0) {
+                    return;
+                  }
               return (
                 <DamageTakenBar
                   key={index}

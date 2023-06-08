@@ -1,3 +1,4 @@
+import Header from "@/components/header";
 import "./globals.css";
 import { Akshar } from "next/font/google";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body className={akshar.className}>
+          <Header />
           <div className={`${main} ${main_dark}`}>
             <div className="pt-20">{children}</div>
           </div>

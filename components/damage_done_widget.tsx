@@ -6,6 +6,11 @@ type Props = {
 };
 
 export default function DamageDoneWidget(props: Props) {
+let boss_kills_players = props.boss_kills_players.sort(
+    (x, y) =>
+        parseInt(y.dmgDone.toString()) -
+        parseInt(x.dmgDone.toString())
+    );
   const calculatePercentDamage = (total: number, fragment: number) => {
     return ((fragment / total) * 100).toString();
   };
@@ -18,14 +23,11 @@ export default function DamageDoneWidget(props: Props) {
   };
 
   return (
-    <div className="flex w-96 justify-center items-center m-1 p-1">
-      {props !== undefined && props.boss_kills_players !== undefined && (
+    <div className="flex w-72 justify-center items-center m-1 p-1">
+      {props !== undefined && boss_kills_players !== undefined && (
         <div className="flex flex-col justify-center items-center m-1 p-1">
-          {props.boss_kills_players
-            .sort(
-              (x, y) =>
-                parseInt(y.dmgDone.toString()) - parseInt(x.dmgDone.toString())
-            )
+          <p>Damage Done</p>
+          {boss_kills_players
             .map((boss_kills_player: boss_kills_players, index: any) => {
               return (
                 <DamageDoneBar
@@ -36,7 +38,7 @@ export default function DamageDoneWidget(props: Props) {
                       ? "100%"
                       : calculatePercentDamage(
                           parseInt(
-                            props.boss_kills_players[0].dmgDone.toString()
+                            boss_kills_players[0].dmgDone.toString()
                           ),
                           parseInt(boss_kills_player.dmgDone.toString())
                         ) + "%"

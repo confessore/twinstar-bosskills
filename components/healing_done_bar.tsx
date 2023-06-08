@@ -12,7 +12,7 @@ type Props = {
   width_percent: string;
 };
 
-export default function DamageDoneBar(props: Props) {
+export default function HealingDoneBar(props: Props) {
   return (
     <div className="w-72 bg-amber-200 m-1 p-1">
       <div>guid: {props.boss_kills_player.guid}</div>
@@ -30,7 +30,7 @@ export default function DamageDoneBar(props: Props) {
         ></div>
       </div>
       <div>
-        {props.boss_kills_player.dmgDone.toString()}
+        {props.boss_kills_player.healingDone.toString()}
       </div>
     </div>
   );

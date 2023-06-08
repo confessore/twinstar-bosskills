@@ -29,9 +29,9 @@ export default function Latest({
   return (
     <Layout>
       {data !== undefined && data.latest_boss_kills !== undefined && (
-        <>
+        <div className='flex m-1 p-1'>
           <LatestBossKillsWidget latest_boss_kills={data.latest_boss_kills} />
-        </>
+        </div>
       )}
     </Layout>
   );

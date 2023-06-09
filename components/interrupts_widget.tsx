@@ -27,9 +27,9 @@ export default function InterruptsWidget(props: Props) {
           <p>Interrupts</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
-                if (parseInt(boss_kills_player.interrupts.toString()) === 0) {
-                    return;
-                  }
+              if (parseInt(boss_kills_player.interrupts.toString()) === 0) {
+                return;
+              }
               return (
                 <InterruptsBar
                   key={index}
@@ -38,9 +38,7 @@ export default function InterruptsWidget(props: Props) {
                     index === 0
                       ? "100%"
                       : calculatePercentInterrupts(
-                          parseInt(
-                            boss_kills_players[0].interrupts.toString()
-                          ),
+                          parseInt(boss_kills_players[0].interrupts.toString()),
                           parseInt(boss_kills_player.interrupts.toString())
                         ) + "%"
                   }

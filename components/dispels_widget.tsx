@@ -13,8 +13,7 @@ type Props = {
 export default function DispelsWidget(props: Props) {
   let [boss_kills_players] = useState(
     props.boss_kills_players.sort(
-      (x, y) =>
-        parseInt(y.dispels.toString()) - parseInt(x.dispels.toString())
+      (x, y) => parseInt(y.dispels.toString()) - parseInt(x.dispels.toString())
     )
   );
   const calculatePercentDispels = (total: number, fragment: number) => {
@@ -39,9 +38,7 @@ export default function DispelsWidget(props: Props) {
                     index === 0
                       ? "100%"
                       : calculatePercentDispels(
-                          parseInt(
-                            boss_kills_players[0].dispels.toString()
-                          ),
+                          parseInt(boss_kills_players[0].dispels.toString()),
                           parseInt(boss_kills_player.dispels.toString())
                         ) + "%"
                   }

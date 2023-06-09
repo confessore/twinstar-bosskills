@@ -11,7 +11,9 @@ export default function HealingDoneWidget(props: Props) {
   let [boss_kills_players] = useState(
     props.boss_kills_players.sort(
       (x, y) =>
-        parseInt(y.healingDone.toString()) - parseInt(x.healingDone.toString())
+        parseInt(y.healingDone.toString()) +
+        parseInt(y.absorbDone.toString()) -
+        (parseInt(x.healingDone.toString()) + parseInt(x.absorbDone.toString()))
     )
   );
   const calculatePercentHealingDone = (total: number, fragment: number) => {
@@ -25,7 +27,11 @@ export default function HealingDoneWidget(props: Props) {
           <p>Healing Done</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
-              if (parseInt(boss_kills_player.healingDone.toString()) === 0) {
+              if (
+                parseInt(boss_kills_player.healingDone.toString()) +
+                  parseInt(boss_kills_player.absorbDone.toString()) ===
+                0
+              ) {
                 return;
               }
               return (
@@ -38,8 +44,12 @@ export default function HealingDoneWidget(props: Props) {
                       : calculatePercentHealingDone(
                           parseInt(
                             boss_kills_players[0].healingDone.toString()
-                          ),
-                          parseInt(boss_kills_player.healingDone.toString())
+                          ) +
+                            parseInt(
+                              boss_kills_players[0].absorbDone.toString()
+                            ),
+                          parseInt(boss_kills_player.healingDone.toString()) +
+                            parseInt(boss_kills_player.absorbDone.toString())
                         ) + "%"
                   }
                 />

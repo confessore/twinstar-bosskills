@@ -5,6 +5,7 @@ import {
   matchClassColor,
   parse_class,
   parse_talent_specialization,
+  parse_talent_specialization_image,
 } from "@/styles/colors";
 
 type Props = {
@@ -15,7 +16,18 @@ type Props = {
 export default function HealingTakenBar(props: Props) {
   return (
     <div className="w-72 m-1 p-1">
-      <div>guid: {props.boss_kills_player.guid}</div>
+      <div className="flex m-1">
+        <Image
+          src={parse_talent_specialization_image(
+            props.boss_kills_player.talent_spec
+          )}
+          alt=""
+          width={24}
+          height={24}
+          className="m-1"
+        />
+        <div className="m-1">guid: {props.boss_kills_player.guid}</div>
+      </div>
       <div className="h-3 bg-gray-300 rounded-full dark:bg-gray-700">
         <div
           className="h-3 text-xs font-medium text-blue-200 text-center p-0.5 leading-none rounded-full"

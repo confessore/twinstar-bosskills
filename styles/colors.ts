@@ -109,6 +109,99 @@ export const parse_class = (id: number) => {
   }
 };
 
+export const parse_talent_specialization_image = (id: number) => {
+  switch (id) {
+    case 62:
+      return "/mage_arcane.webp";
+    case 63:
+      return "/mage_fire.webp";
+    case 64:
+      return "/mage_frost.webp";
+
+    case 65:
+      return "/paladin_holy.webp";
+    case 66:
+      return "/paladin_protection.webp";
+    case 70:
+      return "/paladin_retribution.webp";
+
+    case 71:
+      return "/warrior_arms.webp";
+    case 72:
+      return "/warrior_fury.webp";
+    case 73:
+      return "/warrior_protection.webp";
+
+    case 74:
+      return "/enrage.webp"; // pet
+    case 79:
+      return "/enrage.webp"; // pet
+    case 81:
+      return "/enrage.webp"; // pet
+
+    case 102:
+      return "/druid_balance.webp";
+    case 103:
+      return "/druid_feral.webp";
+    case 104:
+      return "/druid_guardian.webp";
+    case 105:
+      return "/druid_restoration.webp";
+
+    case 250:
+      return "/death_knight_blood.webp";
+    case 251:
+      return "/death_knight_frost.webp";
+    case 252:
+      return "/death_knight_unholy.webp";
+
+    case 253:
+      return "/hunter_beast_mastery.webp";
+    case 254:
+      return "/hunter_marksmanship.webp";
+    case 255:
+      return "/hunter_survival.webp";
+
+    case 256:
+      return "/priest_discipline.webp";
+    case 257:
+      return "/priest_holy.webp";
+    case 258:
+      return "/priest_shadow.webp";
+
+    case 259:
+      return "/rogue_assassination.webp";
+    case 260:
+      return "/rogue_outlaw.webp";
+    case 261:
+      return "/rogue_subtlety.webp";
+
+    case 262:
+      return "/shaman_elemental.webp";
+    case 263:
+      return "/shaman_enhancement.webp";
+    case 264:
+      return "/shaman_restoration.webp";
+
+    case 265:
+      return "/warlock_affliction.webp";
+    case 266:
+      return "/warlock_demonology.webp";
+    case 267:
+      return "/warlock_destruction.webp";
+
+    case 268:
+      return "/monk_brewmaster.webp";
+    case 269:
+      return "/monk_windwalker.webp";
+    case 270:
+      return "/monk_mistweaver.webp";
+
+    default:
+      return "/enrage.webp";
+  }
+};
+
 export const parse_talent_specialization = (id: number) => {
   switch (id) {
     case 62:

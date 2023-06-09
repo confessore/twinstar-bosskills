@@ -1,10 +1,11 @@
 import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
-import DamageDoneBar from "./damage_done_bar";
 import { useState } from "react";
-import DamageTakenBar from "./damage_taken_bar";
+import { characters } from "@/prisma/characters";
+import Bar from "./bar";
 
 type Props = {
   boss_kills_players: boss_kills_players[];
+  characters: characters[];
 };
 
 export default function DamageTakenWidget(props: Props) {
@@ -36,9 +37,14 @@ export default function DamageTakenWidget(props: Props) {
                 return;
               }
               return (
-                <DamageTakenBar
+                <Bar
                   key={index}
                   boss_kills_player={boss_kills_player}
+                  character_name={
+                    props.characters.find(
+                      (value) => value.guid === boss_kills_player.guid
+                    )?.name ?? "Unknown"
+                  }
                   width_percent={
                     index === 0
                       ? "100%"
@@ -47,6 +53,7 @@ export default function DamageTakenWidget(props: Props) {
                           parseInt(boss_kills_player.dmgTaken.toString())
                         ) + "%"
                   }
+                  value={boss_kills_player.dmgTaken.toString()}
                 />
               );
             }

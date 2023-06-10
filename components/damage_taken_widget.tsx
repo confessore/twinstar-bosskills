@@ -27,9 +27,9 @@ export default function DamageTakenWidget(props: Props) {
   };
 
   return (
-    <div className="flex w-72 justify-center items-center m-1 p-1">
+    <div className="flex w-72 m-1">
       {props !== undefined && boss_kills_players !== undefined && (
-        <div className="flex flex-col justify-center items-center m-1 p-1">
+        <div className="flex flex-col m-1">
           <p>Damage Taken</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {

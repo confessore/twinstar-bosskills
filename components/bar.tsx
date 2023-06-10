@@ -18,7 +18,7 @@ type Props = {
 
 export default function Bar(props: Props) {
   return (
-    <div className="w-72 m-1 p-1">
+    <div className="w-72 m-1">
       <div className="flex m-1">
         <Image
           src={parse_talent_specialization_image(

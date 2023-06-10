@@ -8,17 +8,17 @@ type Props = {
 
 export default function LatestBossKillsCard(props: Props) {
   return (
-    <div className="flex w-72 justify-center items-center m-1 p-1">
+    <div className="flex w-72 m-1">
       <Link
         href={`boss_kills/${props.boss_kills.id?.toString()}`}
-        className="flex flex-col mx-1 px-1"
+        className="flex flex-col mx-1"
         prefetch={false}
       >
-        <div className="flex text-start mx-1 px-1">
+        <div className="flex text-start mx-1">
           {props.boss_kills.id?.toString()} slain by{" "}
           {props.boss_kills.guild?.toString()}
         </div>
-        <div className="flex text-start mx-1 px-1">
+        <div className="flex text-start mx-1">
           {props.boss_kills.time?.toString()}
         </div>
       </Link>

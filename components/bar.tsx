@@ -18,8 +18,8 @@ type Props = {
 
 export default function Bar(props: Props) {
   return (
-    <div className="w-72 m-1">
-      <div className="flex m-1">
+    <div className="m-1 w-72">
+      <div className="m-1 flex">
         <Image
           src={parse_talent_specialization_image(
             props.boss_kills_player.talent_spec
@@ -31,9 +31,9 @@ export default function Bar(props: Props) {
         />
         <div className="m-1">{props.character_name}</div>
       </div>
-      <div className="h-3 bg-gray-300 rounded-full dark:bg-gray-700">
+      <div className="h-3 rounded-full bg-gray-300 dark:bg-gray-700">
         <div
-          className="h-3 text-xs font-medium text-blue-200 text-center p-0.5 leading-none rounded-full"
+          className="h-3 rounded-full p-0.5 text-center text-xs font-medium leading-none text-blue-200"
           style={{
             width: props.width_percent,
             backgroundColor: matchClassColor(

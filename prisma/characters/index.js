@@ -105,7 +105,8 @@ const config = {
       value: "prisma-client-js",
     },
     output: {
-      value: "/Users/confessore/projects/twinstar-bosskills/prisma/characters",
+      value:
+        "C:\\Users\\confe\\projects\\twinstar-bosskills\\prisma\\characters",
       fromEnvVar: null,
     },
     config: {
@@ -114,7 +115,7 @@ const config = {
     binaryTargets: [
       {
         fromEnvVar: null,
-        value: "darwin-arm64",
+        value: "windows",
         native: true,
       },
       {
@@ -169,6 +170,9 @@ warnEnvConflicts({
 const PrismaClient = getPrismaClient(config);
 exports.PrismaClient = PrismaClient;
 Object.assign(exports, Prisma);
+
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "prisma/characters/query_engine-windows.dll.node");
 
 path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
 path.join(

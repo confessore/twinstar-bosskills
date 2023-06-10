@@ -21,7 +21,7 @@ export default function Page(props: Props) {
   return (
     <Layout>
       {props !== undefined && props.boss_kills_players !== undefined && (
-        <div className="flex flex-wrap m-1 p-1">
+        <div className="m-1 flex flex-wrap p-1">
           <DamageDoneWidget
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}

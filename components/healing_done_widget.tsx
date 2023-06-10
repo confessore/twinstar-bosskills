@@ -22,9 +22,9 @@ export default function HealingDoneWidget(props: Props) {
   };
 
   return (
-    <div className="flex w-72 m-1">
+    <div className="m-1 flex w-72">
       {props !== undefined && boss_kills_players !== undefined && (
-        <div className="flex flex-col m-1">
+        <div className="m-1 flex flex-col">
           <p>Healing Done</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
@@ -58,10 +58,10 @@ export default function HealingDoneWidget(props: Props) {
                             parseInt(boss_kills_player.absorbDone.toString())
                         ) + "%"
                   }
-                  value={
-                    (parseInt(boss_kills_player.healingDone.toString()) +
-                    parseInt(boss_kills_player.absorbDone.toString())).toString()
-                  }
+                  value={(
+                    parseInt(boss_kills_player.healingDone.toString()) +
+                    parseInt(boss_kills_player.absorbDone.toString())
+                  ).toString()}
                 />
               );
             }

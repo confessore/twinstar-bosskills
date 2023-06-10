@@ -29,7 +29,7 @@ export default function Latest({
   return (
     <Layout>
       {data !== undefined && data.latest_boss_kills !== undefined && (
-        <div className="flex flex-wrap m-1">
+        <div className="m-1 flex flex-wrap">
           <LatestBossKillsWidget latest_boss_kills={data.latest_boss_kills} />
         </div>
       )}

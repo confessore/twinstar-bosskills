@@ -2,7 +2,7 @@ import bosskills_prisma from "./bosskills.prisma";
 
 export async function get_latest_boss_kills() {
   let latest_boss_kills = await bosskills_prisma.boss_kills.findMany({
-    take: 25,
+    select: { id: true, entry:true, guild: true, time: true },
     where: { hidden: false }
   });
   let json = JSON.stringify(latest_boss_kills);

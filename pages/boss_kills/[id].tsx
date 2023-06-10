@@ -1,5 +1,5 @@
 import { boss_kills_players } from "@/prisma/bosskills";
-import { get_boss_kill_players as get_boss_kills_players } from "@/utils/bosskills.db";
+import { get_all_boss_kills_ids, get_boss_kill_players as get_boss_kills_players } from "@/utils/bosskills.db";
 import { useRouter } from "next/router";
 import "@/app/globals.css";
 import Layout from "@/components/layout";
@@ -13,6 +13,7 @@ import { get_characters } from "@/utils/characters.db";
 import { characters } from "@/prisma/characters";
 
 type Props = {
+  id: string;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
 };
@@ -52,8 +53,36 @@ export default function Page(props: Props) {
   );
 }
 
-export async function getServerSideProps(context: any) {
-  let id = context.query.id;
+export async function getStaticPaths() {
+  // When this is true (in preview environments) don't
+  // prerender any static pages
+  // (faster builds, but slower initial page load)
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+ 
+  // Call an external API endpoint to get posts
+  let boss_kills_ids = await get_all_boss_kills_ids();
+
+ 
+  // Get the paths we want to prerender based on posts
+  // In production environments, prerender all pages
+  // (slower builds, but faster initial page load)
+  const paths = boss_kills_ids.map((boss_kills_id_object) => ({
+  
+    params: { id: boss_kills_id_object.id.toString() },
+  }))
+ 
+  // { fallback: false } means other routes should 404
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps(context: any) {
+  const { params } = context;
+  let id = params.id
   let boss_kills_players_json = await get_boss_kills_players(parseInt(id));
   let boss_kills_players = JSON.parse(boss_kills_players_json);
   let characters = await get_characters(boss_kills_players);

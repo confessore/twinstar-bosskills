@@ -63,7 +63,7 @@ export default function Page(props: Props) {
   );
 }
 
-export async function getStaticPaths() {
+/*export async function getStaticPaths() {
   // When this is true (in preview environments) don't
   // prerender any static pages
   // (faster builds, but slower initial page load)
@@ -86,9 +86,9 @@ export async function getStaticPaths() {
 
   // { fallback: false } means other routes should 404
   return { paths, fallback: false };
-}
+}*/
 
-export async function getStaticProps(context: any) {
+export async function getServerSideProps(context: any) {
   const { params } = context;
   let id = parseInt(params.id);
   let boss_kills = await get_boss_kill_by_id(id);

@@ -12,19 +12,19 @@ export default function Header() {
         <Link href="/latest" className="m-1 p-1" prefetch={false}>
           Latest
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/raids" className="m-1 p-1" prefetch={false}>
           Raids
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/characters" className="m-1 p-1" prefetch={false}>
           Characters
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/guilds" className="m-1 p-1" prefetch={false}>
           Guilds
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/loot" className="m-1 p-1" prefetch={false}>
           Loot
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/performance" className="m-1 p-1" prefetch={false}>
           Player Performance
         </Link>
       </div>

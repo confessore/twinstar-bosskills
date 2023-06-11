@@ -350,3 +350,77 @@ export const parse_talent_specialization = (id: number) => {
       return "Unknown";
   }
 };
+
+export const parse_character_race = async (id: number) => {
+  switch (id) {
+    case 1:
+      return "Human";
+    case 2:
+      return "Orc";
+    case 3:
+      return "Dwarf";
+    case 4:
+      return "Night Elf";
+    case 5:
+      return "Undead";
+    case 6:
+      return "Tauren";
+    case 7:
+      return "Gnome";
+    case 8:
+      return "Troll";
+    case 9:
+      return "Goblin";
+    case 10:
+      return "Blood Elf";
+    case 11:
+      return "Draenei";
+    case 22:
+      return "Worgen";
+    case 24:
+      return "Pandaren";
+    case 25:
+      return "Pandaren";
+    case 26:
+      return "Pandaren";
+    default:
+      return "Unknown";
+  }
+};
+
+export const parse_character_race_image = async (id: number) => {
+  switch (id) {
+    case 1:
+      return "Human";
+    case 2:
+      return "Orc";
+    case 3:
+      return "Dwarf";
+    case 4:
+      return "Night Elf";
+    case 5:
+      return "Undead";
+    case 6:
+      return "Tauren";
+    case 7:
+      return "Gnome";
+    case 8:
+      return "Troll";
+    case 9:
+      return "Goblin";
+    case 10:
+      return "Blood Elf";
+    case 11:
+      return "Draenei";
+    case 22:
+      return "Worgen";
+    case 24:
+      return "Pandaren";
+    case 25:
+      return "Pandaren";
+    case 26:
+      return "Pandaren";
+    default:
+      return "Unknown";
+  }
+};

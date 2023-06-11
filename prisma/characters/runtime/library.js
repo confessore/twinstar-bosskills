@@ -7637,12 +7637,10 @@ ${(0, ot.default)(n.toString(), sr)}
       ? t.concat(
           this.value.flatMap((r, n) =>
             r instanceof ae
-              ? r
-                  .collectErrors()
-                  .map((i) => ({
-                    ...i,
-                    path: [this.key, String(n), ...i.path],
-                  }))
+              ? r.collectErrors().map((i) => ({
+                  ...i,
+                  path: [this.key, String(n), ...i.path],
+                }))
               : r instanceof ue
               ? r
                   .collectErrors()

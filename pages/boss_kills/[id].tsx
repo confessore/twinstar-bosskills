@@ -90,11 +90,10 @@ export default function Page(props: Props) {
 
 export async function getServerSideProps(context: any) {
   const { params } = context;
-  let id = parseInt(params.id);
-  let boss_kills = await get_boss_kill_by_id(id);
-  let boss_kills_players_json = await get_boss_kills_players(id);
-  let boss_kills_players = JSON.parse(boss_kills_players_json);
-  let characters = await get_characters(boss_kills_players);
+  const id = parseInt(params.id);
+  const boss_kills = await get_boss_kill_by_id(id);
+  const boss_kills_players = await get_boss_kills_players(id);
+  const characters = await get_characters(boss_kills_players);
   return {
     props: { boss_kills, boss_kills_players, characters }, // will be passed to the page component as props
   };

@@ -14,9 +14,10 @@ type Props = {
 };
 
 export const getServerSideProps = async (context: any) => {
+  const latest_boss_kills = await get_latest_boss_kills();
   return {
     props: {
-      latest_boss_kills: JSON.parse(await get_latest_boss_kills()),
+      latest_boss_kills,
     },
   };
 };

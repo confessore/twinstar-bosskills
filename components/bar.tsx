@@ -15,6 +15,7 @@ type Props = {
   character_name: string;
   width_percent: string;
   value: string;
+  length: number;
 };
 
 export default function Bar(props: Props) {
@@ -50,8 +51,11 @@ export default function Bar(props: Props) {
           }}
         ></div>
       </div>
-      <div>
-        <p>{props.value}</p>
+      <div className="m-1 flex justify-between">
+        <p className="m-1">{props.value}</p>
+        <p className="m-1">
+          {Math.ceil(parseInt(props.value) / (props.length / 1000))} /s
+        </p>
       </div>
     </div>
   );

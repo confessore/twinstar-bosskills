@@ -4,6 +4,7 @@ import { characters } from "@/prisma/characters";
 import Bar from "./bar";
 
 type Props = {
+  boss_kills: boss_kills;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
 };
@@ -62,6 +63,7 @@ export default function HealingDoneWidget(props: Props) {
                     parseInt(boss_kills_player.healingDone.toString()) +
                     parseInt(boss_kills_player.absorbDone.toString())
                   ).toString()}
+                  length={props.boss_kills.length}
                 />
               );
             }

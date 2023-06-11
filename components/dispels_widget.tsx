@@ -4,6 +4,7 @@ import { characters } from "@/prisma/characters";
 import Bar from "./bar";
 
 type Props = {
+  boss_kills: boss_kills;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
 };
@@ -46,6 +47,7 @@ export default function DispelsWidget(props: Props) {
                         ) + "%"
                   }
                   value={boss_kills_player.dispels.toString()}
+                  length={props.boss_kills.length}
                 />
               );
             }

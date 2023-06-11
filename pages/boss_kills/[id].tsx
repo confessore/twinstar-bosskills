@@ -1,6 +1,7 @@
-import { boss_kills_players } from "@/prisma/bosskills";
+import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
 import {
   get_all_boss_kills_ids,
+  get_boss_kill_by_id,
   get_boss_kill_players as get_boss_kills_players,
 } from "@/utils/bosskills.db";
 import { useRouter } from "next/router";
@@ -16,7 +17,7 @@ import { get_characters } from "@/utils/characters.db";
 import { characters } from "@/prisma/characters";
 
 type Props = {
-  id: string;
+  boss_kills: boss_kills;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
 };
@@ -27,26 +28,32 @@ export default function Page(props: Props) {
       {props !== undefined && props.boss_kills_players !== undefined && (
         <div className="m-1 flex flex-wrap p-1">
           <DamageDoneWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
           <HealingDoneWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
           <DamageTakenWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
           <HealingTakenWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
           <InterruptsWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
           <DispelsWidget
+            boss_kills={props.boss_kills}
             boss_kills_players={props.boss_kills_players}
             characters={props.characters}
           />
@@ -83,11 +90,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: any) {
   const { params } = context;
-  let id = params.id;
-  let boss_kills_players_json = await get_boss_kills_players(parseInt(id));
+  let id = parseInt(params.id);
+  let boss_kills = await get_boss_kill_by_id(id);
+  let boss_kills_players_json = await get_boss_kills_players(id);
   let boss_kills_players = JSON.parse(boss_kills_players_json);
   let characters = await get_characters(boss_kills_players);
   return {
-    props: { boss_kills_players, characters }, // will be passed to the page component as props
+    props: { boss_kills, boss_kills_players, characters }, // will be passed to the page component as props
   };
 }

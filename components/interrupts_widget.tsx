@@ -4,6 +4,7 @@ import { characters } from "@/prisma/characters";
 import Bar from "./bar";
 
 type Props = {
+  boss_kills: boss_kills;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
 };
@@ -47,6 +48,7 @@ export default function InterruptsWidget(props: Props) {
                         ) + "%"
                   }
                   value={boss_kills_player.interrupts.toString()}
+                  length={props.boss_kills.length}
                 />
               );
             }

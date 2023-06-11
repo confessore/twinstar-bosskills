@@ -28,3 +28,11 @@ export async function get_all_boss_kills_ids() {
   });
   return boss_kills_ids;
 }
+
+export async function get_boss_kill_by_id(id: number) {
+  let boss_kills = await bosskills_prisma.boss_kills.findFirst({
+    where: { id },
+  });
+  let json = JSON.stringify(boss_kills);
+  return JSON.parse(json);
+}

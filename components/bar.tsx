@@ -20,7 +20,7 @@ type Props = {
 
 export default function Bar(props: Props) {
   return (
-    <div className="m-1 flex flex-col w-full">
+    <div className="m-1 flex w-full flex-col">
       <div className="m-1 flex">
         <Image
           src={parse_class_image(props.boss_kills_player.talent_spec)}

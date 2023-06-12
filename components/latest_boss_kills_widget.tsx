@@ -10,7 +10,7 @@ export default function LatestBossKillsWidget(props: Props) {
   return (
     <>
       {props !== undefined && props.latest_boss_kills !== undefined && (
-        <div className="m-1 flex flex-col w-full">
+        <div className="m-1 flex w-full flex-col">
           {props.latest_boss_kills.map((boss_kills, index) => {
             if (!boss_kills.hidden) {
               return (

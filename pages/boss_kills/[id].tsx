@@ -23,7 +23,8 @@ type Props = {
   characters: characters[];
 };
 
-const button_style = "m-1 bg-slate-500 hover:bg-slate-700 font-bold py-1 px-2 rounded";
+const button_style =
+  "m-1 bg-slate-500 hover:bg-slate-700 font-bold py-1 px-2 rounded";
 
 export default function Page(props: Props) {
   const [tab, setTab] = useState(0);
@@ -33,7 +34,10 @@ export default function Page(props: Props) {
       {props !== undefined && props.boss_kills_players !== undefined && (
         <div className="m-1 flex flex-col">
           <div className="m-1 flex flex-wrap">
-            <button className={`m-0.5 ${button_style}`} onClick={() => setTab(0)}>
+            <button
+              className={`m-0.5 ${button_style}`}
+              onClick={() => setTab(0)}
+            >
               Damage Done
             </button>
             <button className={`${button_style}`} onClick={() => setTab(1)}>

@@ -24,8 +24,8 @@ export default function HealingTakenWidget(props: Props) {
   return (
     <>
       {props !== undefined && boss_kills_players !== undefined && (
-        <div className="m-1 flex flex-col w-full">
-          <p className='m-1 text-5xl font-bold'>Healing Taken</p>
+        <div className="m-1 flex w-full flex-col">
+          <p className="m-1 text-5xl font-bold">Healing Taken</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
               if (parseInt(boss_kills_player.healingTaken.toString()) === 0) {

@@ -28,10 +28,10 @@ export default function DamageTakenWidget(props: Props) {
   };
 
   return (
-    <div className="m-1 flex w-72">
+    <>
       {props !== undefined && boss_kills_players !== undefined && (
-        <div className="m-1 flex flex-col">
-          <p>Damage Taken</p>
+        <div className="m-1 flex flex-col w-full">
+          <p className='m-1 text-5xl font-bold'>Damage Taken</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
               if (parseInt(boss_kills_player.dmgTaken.toString()) === 0) {
@@ -62,6 +62,6 @@ export default function DamageTakenWidget(props: Props) {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }

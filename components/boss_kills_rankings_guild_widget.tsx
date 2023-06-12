@@ -10,15 +10,21 @@ type Props = {
 export default function BossKillsRankingsGuildWidget(props: Props) {
   return (
     <div className="m-1 flex w-72">
-      {props !== undefined && props.boss_kills_rankings_guilds !== undefined && (
-        <div className="m-1 flex flex-col">
-          {props.boss_kills_rankings_guilds.map((boss_kills_rankings_guild, index) => {
-              return (
-                <BossKillsRankingsGuildCard key={index} boss_kills_rankings_guild={boss_kills_rankings_guild} />
-              );
-          })}
-        </div>
-      )}
+      {props !== undefined &&
+        props.boss_kills_rankings_guilds !== undefined && (
+          <div className="m-1 flex flex-col">
+            {props.boss_kills_rankings_guilds.map(
+              (boss_kills_rankings_guild, index) => {
+                return (
+                  <BossKillsRankingsGuildCard
+                    key={index}
+                    boss_kills_rankings_guild={boss_kills_rankings_guild}
+                  />
+                );
+              }
+            )}
+          </div>
+        )}
     </div>
   );
 }

@@ -15,6 +15,7 @@ import InterruptsWidget from "@/components/interrupts_widget";
 import DispelsWidget from "@/components/dispels_widget";
 import { get_characters } from "@/utils/characters.db";
 import { characters } from "@/prisma/characters";
+import { useState } from "react";
 
 type Props = {
   boss_kills: boss_kills;
@@ -22,41 +23,79 @@ type Props = {
   characters: characters[];
 };
 
+const button_style = "m-1 bg-slate-500 hover:bg-slate-700 font-bold py-1 px-2 rounded";
+
 export default function Page(props: Props) {
+  const [tab, setTab] = useState(0);
+
   return (
     <Layout>
       {props !== undefined && props.boss_kills_players !== undefined && (
-        <div className="m-1 flex flex-wrap p-1">
-          <DamageDoneWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
-          <HealingDoneWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
-          <DamageTakenWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
-          <HealingTakenWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
-          <InterruptsWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
-          <DispelsWidget
-            boss_kills={props.boss_kills}
-            boss_kills_players={props.boss_kills_players}
-            characters={props.characters}
-          />
+        <div className="m-1 flex flex-col">
+          <div className="m-1 flex flex-wrap">
+            <button className={`m-0.5 ${button_style}`} onClick={() => setTab(0)}>
+              Damage Done
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(1)}>
+              Healing Done
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(5)}>
+              Dispels
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(2)}>
+              Damage Taken
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(3)}>
+              Healing Taken
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(4)}>
+              Interrupts
+            </button>
+          </div>
+          <div className="m-1 flex flex-wrap">
+            {tab === 0 && (
+              <DamageDoneWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+            {tab === 1 && (
+              <HealingDoneWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+            {tab === 2 && (
+              <DamageTakenWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+            {tab === 3 && (
+              <HealingTakenWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+            {tab === 4 && (
+              <InterruptsWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+            {tab === 5 && (
+              <DispelsWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            )}
+          </div>
         </div>
       )}
     </Layout>

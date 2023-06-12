@@ -8,7 +8,7 @@ type Props = {
 
 export default function LatestBossKillsCard(props: Props) {
   return (
-    <div className="m-1 flex w-72">
+    <div className="m-1 flex flex-col w-full">
       <Link
         href={`boss_kills/${props.boss_kills.id?.toString()}`}
         className="mx-1 flex flex-col"

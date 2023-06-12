@@ -21,10 +21,10 @@ export default function InterruptsWidget(props: Props) {
   };
 
   return (
-    <div className="m-1 flex w-72">
+    <>
       {props !== undefined && boss_kills_players !== undefined && (
-        <div className="m-1 flex flex-col">
-          <p>Interrupts</p>
+        <div className="m-1 flex flex-col w-full">
+          <p className='m-1 text-5xl font-bold'>Interrupts</p>
           {boss_kills_players.map(
             (boss_kills_player: boss_kills_players, index: any) => {
               if (parseInt(boss_kills_player.interrupts.toString()) === 0) {
@@ -55,6 +55,6 @@ export default function InterruptsWidget(props: Props) {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }

@@ -11,7 +11,8 @@ export async function get_latest_boss_kills() {
 }
 
 export async function get_boss_kills_rankings_guilds() {
-  const boss_kills_rankings_guilds = await bosskills_prisma.boss_kills_rankings_guild.findMany();
+  const boss_kills_rankings_guilds =
+    await bosskills_prisma.boss_kills_rankings_guild.findMany();
   const json = JSON.stringify(boss_kills_rankings_guilds);
   return JSON.parse(json);
 }

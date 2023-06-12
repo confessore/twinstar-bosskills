@@ -20,40 +20,36 @@ export default function DispelsWidget(props: Props) {
   };
 
   return (
-    <>
-      {props !== undefined && boss_kills_players !== undefined && (
-        <div className="m-1 flex w-full flex-col">
-          <p className="m-1 text-5xl font-bold">Dispels</p>
-          {boss_kills_players.map(
-            (boss_kills_player: boss_kills_players, index: any) => {
-              if (parseInt(boss_kills_player.dispels.toString()) === 0) {
-                return;
+    <div className="m-0.5 flex w-96 max-w-full flex-col">
+      <p className="m-0.5 text-3xl font-bold">Dispels</p>
+      {boss_kills_players.map(
+        (boss_kills_player: boss_kills_players, index: any) => {
+          if (parseInt(boss_kills_player.dispels.toString()) === 0) {
+            return;
+          }
+          return (
+            <Bar
+              key={index}
+              boss_kills_player={boss_kills_player}
+              character_name={
+                props.characters.find(
+                  (value) => value.guid === boss_kills_player.guid
+                )?.name ?? "Unknown"
               }
-              return (
-                <Bar
-                  key={index}
-                  boss_kills_player={boss_kills_player}
-                  character_name={
-                    props.characters.find(
-                      (value) => value.guid === boss_kills_player.guid
-                    )?.name ?? "Unknown"
-                  }
-                  width_percent={
-                    index === 0
-                      ? "100%"
-                      : calculatePercentDispels(
-                          parseInt(boss_kills_players[0].dispels.toString()),
-                          parseInt(boss_kills_player.dispels.toString())
-                        ) + "%"
-                  }
-                  value={boss_kills_player.dispels.toString()}
-                  length={props.boss_kills.length}
-                />
-              );
-            }
-          )}
-        </div>
+              width_percent={
+                index === 0
+                  ? "100%"
+                  : calculatePercentDispels(
+                      parseInt(boss_kills_players[0].dispels.toString()),
+                      parseInt(boss_kills_player.dispels.toString())
+                    ) + "%"
+              }
+              value={boss_kills_player.dispels.toString()}
+              length={props.boss_kills.length}
+            />
+          );
+        }
       )}
-    </>
+    </div>
   );
 }

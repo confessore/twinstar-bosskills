@@ -24,7 +24,7 @@ type Props = {
 };
 
 const button_style =
-  "m-1 bg-slate-500 hover:bg-slate-700 font-bold py-1 px-2 rounded";
+  "m-0.5 bg-slate-500 hover:bg-slate-700 font-bold py-2 px-3 rounded";
 
 export default function Page(props: Props) {
   const [tab, setTab] = useState(0);
@@ -32,12 +32,9 @@ export default function Page(props: Props) {
   return (
     <Layout>
       {props !== undefined && props.boss_kills_players !== undefined && (
-        <div className="m-1 flex flex-col">
-          <div className="m-1 flex flex-wrap">
-            <button
-              className={`m-0.5 ${button_style}`}
-              onClick={() => setTab(0)}
-            >
+        <div className="flex flex-col">
+          <div className="flex flex-wrap">
+            <button className={`${button_style}`} onClick={() => setTab(0)}>
               Damage Done
             </button>
             <button className={`${button_style}`} onClick={() => setTab(1)}>
@@ -56,48 +53,60 @@ export default function Page(props: Props) {
               Interrupts
             </button>
           </div>
-          <div className="m-1 flex flex-wrap">
+          <div className="flex w-full">
             {tab === 0 && (
-              <DamageDoneWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <DamageDoneWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
             {tab === 1 && (
-              <HealingDoneWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <HealingDoneWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
             {tab === 2 && (
-              <DamageTakenWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <DamageTakenWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
             {tab === 3 && (
-              <HealingTakenWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <HealingTakenWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
             {tab === 4 && (
-              <InterruptsWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <InterruptsWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
             {tab === 5 && (
-              <DispelsWidget
-                boss_kills={props.boss_kills}
-                boss_kills_players={props.boss_kills_players}
-                characters={props.characters}
-              />
+              <div className="flex w-full">
+                <DispelsWidget
+                  boss_kills={props.boss_kills}
+                  boss_kills_players={props.boss_kills_players}
+                  characters={props.characters}
+                />
+              </div>
             )}
           </div>
         </div>

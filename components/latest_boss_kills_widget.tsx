@@ -8,20 +8,15 @@ type Props = {
 
 export default function LatestBossKillsWidget(props: Props) {
   return (
-    <>
-      {props !== undefined && props.latest_boss_kills !== undefined && (
-        <div className="m-1 flex w-full flex-col">
-          {props.latest_boss_kills.map((boss_kills, index) => {
-            if (!boss_kills.hidden) {
-              return (
-                <LatestBossKillsCard key={index} boss_kills={boss_kills} />
-              );
-            } else {
-              return;
-            }
-          })}
-        </div>
-      )}
-    </>
+    <div className="m-0.5 flex w-96 max-w-full flex-col">
+      <p className="m-0.5 text-3xl font-bold">Latest Boss Kills</p>
+      {props.latest_boss_kills.map((boss_kills, index) => {
+        if (!boss_kills.hidden) {
+          return <LatestBossKillsCard key={index} boss_kills={boss_kills} />;
+        } else {
+          return;
+        }
+      })}
+    </div>
   );
 }

@@ -32,7 +32,7 @@ export default function Guilds(props: Props) {
     <Layout>
       {props !== undefined &&
         props.boss_kills_rankings_guilds !== undefined && (
-          <div className="m-1 flex flex-wrap">
+          <div className="flex flex-wrap">
             <BossKillsRankingsGuildWidget
               boss_kills_rankings_guilds={props.boss_kills_rankings_guilds}
             />

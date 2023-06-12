@@ -20,14 +20,14 @@ type Props = {
 
 export default function Bar(props: Props) {
   return (
-    <div className="m-1 flex w-full flex-col">
-      <div className="m-1 flex">
+    <div className="flex w-full flex-col">
+      <div className="flex">
         <Image
           src={parse_class_image(props.boss_kills_player.talent_spec)}
           alt=""
           width={24}
           height={24}
-          className="m-1"
+          className="m-0.5"
         />
         <Image
           src={parse_talent_specialization_image(
@@ -36,11 +36,11 @@ export default function Bar(props: Props) {
           alt=""
           width={24}
           height={24}
-          className="m-1"
+          className="m-0.5"
         />
-        <div className="m-1">{props.character_name}</div>
+        <div className="m-0.5">{props.character_name}</div>
       </div>
-      <div className="h-3 rounded-full bg-stone-500">
+      <div className="m-0.5 h-3 rounded-full bg-stone-500">
         <div
           className="h-3 rounded-full p-0.5 text-center text-xs font-medium leading-none"
           style={{
@@ -51,9 +51,9 @@ export default function Bar(props: Props) {
           }}
         ></div>
       </div>
-      <div className="m-1 flex justify-between">
-        <p className="m-1">{props.value}</p>
-        <p className="m-1">
+      <div className="m-0.5 flex justify-between">
+        <p className="m-0.5">{props.value}</p>
+        <p className="m-0.5">
           {Math.ceil(parseInt(props.value) / (props.length / 1000))} /s
         </p>
       </div>

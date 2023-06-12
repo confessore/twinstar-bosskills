@@ -9,10 +9,11 @@ type Props = {
 
 export default function BossKillsRankingsGuildWidget(props: Props) {
   return (
-    <div className="m-1 flex w-72">
+    <div className="m-0.5 flex w-96 max-w-full flex-col">
+      <p className="m-0.5 text-3xl font-bold">Boss Kills Rankings: Guilds</p>
       {props !== undefined &&
         props.boss_kills_rankings_guilds !== undefined && (
-          <div className="m-1 flex flex-col">
+          <div className="m-0.5 flex flex-col">
             {props.boss_kills_rankings_guilds.map(
               (boss_kills_rankings_guild, index) => {
                 return (

@@ -16,6 +16,7 @@ import DispelsWidget from "@/components/dispels_widget";
 import { get_characters } from "@/utils/characters.db";
 import { characters } from "@/prisma/characters";
 import { useState } from "react";
+import BossKillsInfo from "@/components/boss_kills_info";
 
 type Props = {
   boss_kills: boss_kills;
@@ -61,6 +62,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
             {tab === 1 && (
@@ -70,6 +72,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
             {tab === 2 && (
@@ -79,6 +82,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
             {tab === 3 && (
@@ -88,6 +92,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
             {tab === 4 && (
@@ -97,6 +102,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
             {tab === 5 && (
@@ -106,6 +112,7 @@ export default function Page(props: Props) {
                   boss_kills_players={props.boss_kills_players}
                   characters={props.characters}
                 />
+                <BossKillsInfo boss_kills={props.boss_kills} />
               </div>
             )}
           </div>

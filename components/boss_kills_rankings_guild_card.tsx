@@ -8,24 +8,17 @@ type Props = {
 
 export default function BossKillsRankingsGuildCard(props: Props) {
   return (
-    <div className="m-1 grid">
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.guild?.toString()} : guild
+    <div className='m-1 flex items-center'>
+        <div className="mx-1 flex">
+        Rank {props.boss_kills_rankings_guild.ranking?.toString()}
         </div>
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.ranking?.toString()} : ranking
-        </div>
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.season?.toString()} : season
-        </div>
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.points?.toString()} : points
-        </div>
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.mode?.toString()} : mode
-        </div>
-        <div className="mx-1 flex text-start">
-          {props.boss_kills_rankings_guild.realm?.toString()} : realm
+        <div className='m-1 flex flex-col'>
+            <div className="mx-1 flex text-lg text-">
+            <strong>{props.boss_kills_rankings_guild.guild?.toString()}</strong>
+            </div>
+            <div className="mx-1 flex">
+            {props.boss_kills_rankings_guild.points?.toString()} Points
+            </div>
         </div>
     </div>
   );

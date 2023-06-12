@@ -40,9 +40,9 @@ export default function Bar(props: Props) {
         />
         <div className="m-1">{props.character_name}</div>
       </div>
-      <div className="h-3 rounded-full bg-gray-300 dark:bg-gray-700">
+      <div className="h-3 rounded-full bg-stone-500">
         <div
-          className="h-3 rounded-full p-0.5 text-center text-xs font-medium leading-none text-blue-200"
+          className="h-3 rounded-full p-0.5 text-center text-xs font-medium leading-none"
           style={{
             width: props.width_percent,
             backgroundColor: matchClassColor(

@@ -11,7 +11,7 @@ export default function LatestBossKillsCard(props: Props) {
   return (
     <Link
       href={`boss_kills/${props.boss_kills.id?.toString()}`}
-      className="m-0.5 flex w-full flex-col bg-slate-500"
+      className="m-0.5 flex w-96 max-w-full flex-col bg-slate-500"
       prefetch={false}
     >
       <p className="m-0.5 text-xs text-start">

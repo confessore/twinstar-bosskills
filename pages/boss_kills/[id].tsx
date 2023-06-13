@@ -17,6 +17,7 @@ import { get_characters } from "@/utils/characters.db";
 import { characters } from "@/prisma/characters";
 import { useState } from "react";
 import BossKillsInfo from "@/components/boss_kills_info";
+import OverhealingDoneWidget from "@/components/overhealing_done_widget";
 
 type Props = {
   boss_kills: boss_kills;
@@ -52,6 +53,9 @@ export default function Page(props: Props) {
             </button>
             <button className={`${button_style}`} onClick={() => setTab(4)}>
               Interrupts
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(6)}>
+              Overhealing Done
             </button>
           </div>
           {tab === 0 && (
@@ -108,6 +112,16 @@ export default function Page(props: Props) {
             <div className="flex w-full flex-wrap justify-center">
               <BossKillsInfo boss_kills={props.boss_kills} />
               <DispelsWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 6 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <OverhealingDoneWidget
                 boss_kills={props.boss_kills}
                 boss_kills_players={props.boss_kills_players}
                 characters={props.characters}

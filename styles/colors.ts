@@ -114,54 +114,54 @@ export const parse_class_image = (id: number) => {
     case 62:
     case 63:
     case 64:
-      return "/images/icons/mop/small/classicon_mage.jpg";
+      return "/images/icons/mop/large/classicon_mage.jpg";
     case 65:
     case 66:
     case 70:
-      return "/images/icons/mop/small/classicon_paladin.jpg";
+      return "/images/icons/mop/large/classicon_paladin.jpg";
     case 71:
     case 72:
     case 73:
-      return "/images/icons/mop/small/classicon_warrior.jpg";
+      return "/images/icons/mop/large/classicon_warrior.jpg";
     case 74:
     case 79:
     case 81:
-      return "/images/icons/mop/small/pet_babyshark.jpg";
+      return "/images/icons/mop/large/pet_babyshark.jpg";
     case 102:
     case 103:
     case 104:
     case 105:
-      return "/images/icons/mop/small/classicon_druid.jpg";
+      return "/images/icons/mop/large/classicon_druid.jpg";
     case 250:
     case 251:
     case 252:
-      return "/images/icons/mop/small/classicon_deathknight.jpg";
+      return "/images/icons/mop/large/classicon_deathknight.jpg";
     case 253:
     case 254:
     case 255:
-      return "/images/icons/mop/small/classicon_hunter.jpg";
+      return "/images/icons/mop/large/classicon_hunter.jpg";
     case 256:
     case 257:
     case 258:
-      return "/images/icons/mop/small/classicon_priest.jpg";
+      return "/images/icons/mop/large/classicon_priest.jpg";
     case 259:
     case 260:
     case 261:
-      return "/images/icons/mop/small/classicon_rogue.jpg";
+      return "/images/icons/mop/large/classicon_rogue.jpg";
     case 262:
     case 263:
     case 264:
-      return "/images/icons/mop/small/classicon_shaman.jpg";
+      return "/images/icons/mop/large/classicon_shaman.jpg";
     case 265:
     case 266:
     case 267:
-      return "/images/icons/mop/small/classicon_warlock.jpg";
+      return "/images/icons/mop/large/classicon_warlock.jpg";
     case 268:
     case 269:
     case 270:
-      return "/images/icons/mop/small/classicon_monk.jpg";
+      return "/images/icons/mop/large/classicon_monk.jpg";
     default:
-      return "/images/icons/mop/small/inv_misc_questionmark";
+      return "/images/icons/mop/large/inv_misc_questionmark";
   }
 };
 

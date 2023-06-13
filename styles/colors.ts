@@ -53,6 +53,36 @@ export const matchClassColor = (playerClass: string) => {
   }
 };
 
+export const parse_mode = (mode: number) => {
+  switch (mode) {
+    case 3:
+      return "Standard";
+    case 4:
+      return "Hard";
+    default:
+      return "Unknown";
+  }
+};
+
+export const parse_boss = (entry: number) => {
+  switch (entry) {
+    case 59915:
+      return "Jasper Guardian";
+    case 60009:
+      return "Feng the Accursed";
+    case 60399:
+      return "Qin-xi";
+    case 60410:
+      return "Elegon";
+    case 60701:
+      return "Zian of the Endless Shadow";
+    case 60143:
+      return "Gara'jal the Spiritbinder";
+    default:
+      return entry.toString();
+  }
+};
+
 export const parse_class = (id: number) => {
   switch (id) {
     case 62:

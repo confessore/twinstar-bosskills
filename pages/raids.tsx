@@ -8,6 +8,7 @@ import { getURL, getData } from "@/utils/helpers";
 import { get_latest_boss_kills } from "@/utils/bosskills.db";
 import LatestBossKillsWidget from "@/components/latest_boss_kills_widget";
 import Layout from "@/components/layout";
+import RaidsWidget from "@/components/raids_widget";
 
 type Props = {
   latest_boss_kills: boss_kills[];
@@ -22,15 +23,13 @@ export const getServerSideProps = async (context: any) => {
   };
 };
 
-export default function Latest(props: Props) {
+export default function Raids(props: Props) {
   return (
     <Layout>
       {props !== undefined && props.latest_boss_kills !== undefined && (
         <div className="flex flex-col">
           <div className="flex w-full flex-wrap justify-center">
-            <LatestBossKillsWidget
-              latest_boss_kills={props.latest_boss_kills}
-            />
+            <RaidsWidget />
           </div>
         </div>
       )}

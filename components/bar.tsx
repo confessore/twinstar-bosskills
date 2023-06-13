@@ -22,7 +22,7 @@ export default function Bar(props: Props) {
   return (
     <div className="flex w-full flex-col">
       <div
-        className="absolute h-20 w-96 max-w-full opacity-10 border-2 border-black"
+        className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10"
         style={{
           backgroundColor: matchClassColor(
             parse_class(props.boss_kills_player.talent_spec)

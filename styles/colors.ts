@@ -70,14 +70,14 @@ export const parse_boss = (entry: number) => {
       return "Jasper Guardian";
     case 60009:
       return "Feng the Accursed";
-    case 60399:
-      return "Qin-xi";
+    case 60143:
+      return "Gara'jal the Spiritbinder";
     case 60410:
       return "Elegon";
     case 60701:
       return "Zian of the Endless Shadow";
-    case 60143:
-      return "Gara'jal the Spiritbinder";
+    case 60399:
+      return "Qin-xi";
     default:
       return entry.toString();
   }

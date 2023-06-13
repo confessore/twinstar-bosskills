@@ -23,7 +23,7 @@ export default function HealingTakenWidget(props: Props) {
 
   return (
     <div className="m-0.5 flex w-96 max-w-full flex-col">
-      <p className="m-0.5 text-3xl font-bold">Healing Taken</p>
+      <p className="m-0.5 text-xl font-bold">Healing Taken</p>
       {boss_kills_players.map(
         (boss_kills_player: boss_kills_players, index: any) => {
           if (parseInt(boss_kills_player.healingTaken.toString()) === 0) {

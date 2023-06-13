@@ -35,7 +35,7 @@ export default function Page(props: Props) {
     <Layout>
       {props !== undefined && props.boss_kills_players !== undefined && (
         <div className="flex flex-col">
-          <div className="flex flex-wrap justify-center">
+          <div className="flex w-full flex-wrap justify-center">
             <button className={`${button_style}`} onClick={() => setTab(0)}>
               Damage Done
             </button>

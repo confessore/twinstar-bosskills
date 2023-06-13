@@ -26,8 +26,10 @@ export default function Latest(props: Props) {
   return (
     <Layout>
       {props !== undefined && props.latest_boss_kills !== undefined && (
-        <div className="flex flex-wrap">
-          <LatestBossKillsWidget latest_boss_kills={props.latest_boss_kills} />
+        <div className="flex flex-col">
+          <div className="flex w-full flex-wrap justify-center">
+            <LatestBossKillsWidget latest_boss_kills={props.latest_boss_kills} />
+          </div>
         </div>
       )}
     </Layout>

@@ -8,7 +8,7 @@ type Props = {
 
 export default function BossKillsRankingsGuildCard(props: Props) {
   return (
-    <div className="m-0.5 flex w-96 max-w-full bg-slate-500 items-center justify-between">
+    <div className="m-0.5 flex bg-slate-500 items-center justify-between">
       <div className="m-0.5 flex flex-col">
         <div className="m-0.5 flex text-lg font-bold">
           <p className='font-bold text-2xl'>{props.boss_kills_rankings_guild.guild?.toString()}</p>

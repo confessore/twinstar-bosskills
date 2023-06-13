@@ -9,28 +9,27 @@ import { get_latest_boss_kills } from "@/utils/bosskills.db";
 import LatestBossKillsWidget from "@/components/latest_boss_kills_widget";
 import Layout from "@/components/layout";
 
-type Data = {
+type Props = {
   latest_boss_kills: boss_kills[];
 };
 
-export const getStaticProps: GetStaticProps<{
-  data: Data;
-}> = async () => {
+export const getServerSideProps = async (context: any) => {
+  const latest_boss_kills = await get_latest_boss_kills();
   return {
     props: {
-      data: { latest_boss_kills: JSON.parse(await get_latest_boss_kills()) },
+      latest_boss_kills,
     },
   };
 };
 
-export default function Latest({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Latest(props: Props) {
   return (
     <Layout>
-      {data !== undefined && data.latest_boss_kills !== undefined && (
-        <div className="flex m-1 p-1">
-          <LatestBossKillsWidget latest_boss_kills={data.latest_boss_kills} />
+      {props !== undefined && props.latest_boss_kills !== undefined && (
+        <div className="flex flex-col">
+          <div className="flex w-full flex-wrap justify-center">
+            <LatestBossKillsWidget latest_boss_kills={props.latest_boss_kills} />
+          </div>
         </div>
       )}
     </Layout>

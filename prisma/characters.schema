@@ -1,0 +1,22 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./characters"
+  binaryTargets = ["native", "darwin-arm64", "rhel-openssl-1.0.x"]
+}
+
+datasource logs {
+  provider = "mysql"
+  url      = env("CHARACTERS_DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model characters {
+  guid   Int    @id @default(0) @logs.UnsignedInt
+  name   String @unique(map: "name") @logs.VarChar(20)
+  race   Int    @default(0) @logs.UnsignedTinyInt
+  class  Int    @default(0) @logs.UnsignedTinyInt
+  gender Int    @default(0) @logs.UnsignedTinyInt
+
+  @@index([class], map: "idx_class")
+  @@index([race], map: "idx_race")
+}

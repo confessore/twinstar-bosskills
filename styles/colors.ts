@@ -1,14 +1,14 @@
-export const DEATHKNIGHT_HEX = "#c41e3a";
-export const DRUID_HEX = "#ff7d0a";
-export const HUNTER_HEX = "#abd473";
-export const MAGE_HEX = "#69ccf0";
-export const MONK_HEX = "#00ff98";
-export const PALADIN_HEX = "#f58cba";
-export const PRIEST_HEX = "#ffffff";
-export const ROGUE_HEX = "#fff569";
-export const SHAMAN_HEX = "#0070de";
-export const WARLOCK_HEX = "#9482c9";
-export const WARRIOR_HEX = "#c79c6e";
+export const DEATHKNIGHT_HEX = "#C41E3B";
+export const DRUID_HEX = "#FF7C0A";
+export const HUNTER_HEX = "#AAD372";
+export const MAGE_HEX = "#68CCEF";
+export const MONK_HEX = "#00FF96";
+export const PALADIN_HEX = "#F48CBA";
+export const PRIEST_HEX = "#FFFFFF";
+export const ROGUE_HEX = "#FFF468";
+export const SHAMAN_HEX = "#2359FF";
+export const WARLOCK_HEX = "#9382C9";
+export const WARRIOR_HEX = "#C69B6D";
 export const DEFAULT = "#000000";
 
 export const DEATHKNIGHT = "DEATHKNIGHT";
@@ -50,6 +50,36 @@ export const matchClassColor = (playerClass: string) => {
       return WARRIOR_HEX;
     default:
       return DEFAULT;
+  }
+};
+
+export const parse_mode = (mode: number) => {
+  switch (mode) {
+    case 3:
+      return "Standard";
+    case 4:
+      return "Hard";
+    default:
+      return "Unknown";
+  }
+};
+
+export const parse_boss = (entry: number) => {
+  switch (entry) {
+    case 59915:
+      return "Jasper Guardian";
+    case 60009:
+      return "Feng the Accursed";
+    case 60399:
+      return "Qin-xi";
+    case 60410:
+      return "Elegon";
+    case 60701:
+      return "Zian of the Endless Shadow";
+    case 60143:
+      return "Gara'jal the Spiritbinder";
+    default:
+      return entry.toString();
   }
 };
 
@@ -106,6 +136,155 @@ export const parse_class = (id: number) => {
       return "Monk";
     default:
       return "Unknown";
+  }
+};
+
+export const parse_class_image = (id: number) => {
+  switch (id) {
+    case 62:
+    case 63:
+    case 64:
+      return "/images/icons/mop/large/classicon_mage.jpg";
+    case 65:
+    case 66:
+    case 70:
+      return "/images/icons/mop/large/classicon_paladin.jpg";
+    case 71:
+    case 72:
+    case 73:
+      return "/images/icons/mop/large/classicon_warrior.jpg";
+    case 74:
+    case 79:
+    case 81:
+      return "/images/icons/mop/large/pet_babyshark.jpg";
+    case 102:
+    case 103:
+    case 104:
+    case 105:
+      return "/images/icons/mop/large/classicon_druid.jpg";
+    case 250:
+    case 251:
+    case 252:
+      return "/images/icons/mop/large/classicon_deathknight.jpg";
+    case 253:
+    case 254:
+    case 255:
+      return "/images/icons/mop/large/classicon_hunter.jpg";
+    case 256:
+    case 257:
+    case 258:
+      return "/images/icons/mop/large/classicon_priest.jpg";
+    case 259:
+    case 260:
+    case 261:
+      return "/images/icons/mop/large/classicon_rogue.jpg";
+    case 262:
+    case 263:
+    case 264:
+      return "/images/icons/mop/large/classicon_shaman.jpg";
+    case 265:
+    case 266:
+    case 267:
+      return "/images/icons/mop/large/classicon_warlock.jpg";
+    case 268:
+    case 269:
+    case 270:
+      return "/images/icons/mop/large/classicon_monk.jpg";
+    default:
+      return "/images/icons/mop/large/inv_misc_questionmark";
+  }
+};
+
+export const parse_talent_specialization_image = (id: number) => {
+  switch (id) {
+    case 62:
+      return "/images/icons/mop/small/Arcane.jpg";
+    case 63:
+      return "/images/icons/mop/small/Fire.jpg";
+    case 64:
+      return "/images/icons/mop/small/FrostMage.jpg";
+
+    case 65:
+      return "/images/icons/mop/small/HolyPaladin.jpg";
+    case 66:
+      return "/images/icons/mop/small/ProtectionPala.jpg";
+    case 70:
+      return "/images/icons/mop/small/Retribution.jpg";
+
+    case 71:
+      return "/images/icons/mop/small/Arms.jpg";
+    case 72:
+      return "/images/icons/mop/small/Fury.jpg";
+    case 73:
+      return "/images/icons/mop/small/ProtectionWar.jpg";
+
+    case 74:
+      return "/images/icons/mop/small/Ferocity.jpg"; // pet
+    case 79:
+      return "/images/icons/mop/small/Cunning.jpg"; // pet
+    case 81:
+      return "/images/icons/mop/small/Tenacity.jpg"; // pet
+
+    case 102:
+      return "/images/icons/mop/small/Balance.jpg";
+    case 103:
+      return "/images/icons/mop/small/Feral.jpg";
+    case 104:
+      return "/images/icons/mop/small/Guardian.jpg";
+    case 105:
+      return "/images/icons/mop/small/RestorationDruid.jpg";
+
+    case 250:
+      return "/images/icons/mop/small/Blood.jpg";
+    case 251:
+      return "/images/icons/mop/small/FrostDK.jpg";
+    case 252:
+      return "/images/icons/mop/small/Unholy.jpg";
+
+    case 253:
+      return "/images/icons/mop/small/BeastMastery.jpg";
+    case 254:
+      return "/images/icons/mop/small/Marksmanship.jpg";
+    case 255:
+      return "/images/icons/mop/small/Survival.jpg";
+
+    case 256:
+      return "/images/icons/mop/small/Discipline.jpg";
+    case 257:
+      return "/images/icons/mop/small/HolyPriest.jpg";
+    case 258:
+      return "/images/icons/mop/small/Shadow.jpg";
+
+    case 259:
+      return "/images/icons/mop/small/Assassination.jpg";
+    case 260:
+      return "/images/icons/mop/small/Combat.jpg";
+    case 261:
+      return "/images/icons/mop/small/Subtlety.jpg";
+
+    case 262:
+      return "/images/icons/mop/small/Elemental.jpg";
+    case 263:
+      return "/images/icons/mop/small/Enhancement.jpg";
+    case 264:
+      return "/images/icons/mop/small/RestorationSham.jpg";
+
+    case 265:
+      return "/images/icons/mop/small/Affliction.jpg";
+    case 266:
+      return "/images/icons/mop/small/Demonology.jpg";
+    case 267:
+      return "/images/icons/mop/small/Destruction.jpg";
+
+    case 268:
+      return "/images/icons/mop/small/Brewmaster.jpg";
+    case 269:
+      return "/images/icons/mop/small/Windwalker.jpg";
+    case 270:
+      return "/images/icons/mop/small/Mistweaver.jpg";
+
+    default:
+      return "/images/icons/mop/small/inv_misc_questionmark";
   }
 };
 
@@ -197,6 +376,80 @@ export const parse_talent_specialization = (id: number) => {
     case 270:
       return "Mistweaver";
 
+    default:
+      return "Unknown";
+  }
+};
+
+export const parse_character_race = async (id: number) => {
+  switch (id) {
+    case 1:
+      return "Human";
+    case 2:
+      return "Orc";
+    case 3:
+      return "Dwarf";
+    case 4:
+      return "Night Elf";
+    case 5:
+      return "Undead";
+    case 6:
+      return "Tauren";
+    case 7:
+      return "Gnome";
+    case 8:
+      return "Troll";
+    case 9:
+      return "Goblin";
+    case 10:
+      return "Blood Elf";
+    case 11:
+      return "Draenei";
+    case 22:
+      return "Worgen";
+    case 24:
+      return "Pandaren";
+    case 25:
+      return "Pandaren";
+    case 26:
+      return "Pandaren";
+    default:
+      return "Unknown";
+  }
+};
+
+export const parse_character_race_image = async (id: number) => {
+  switch (id) {
+    case 1:
+      return "Human";
+    case 2:
+      return "Orc";
+    case 3:
+      return "Dwarf";
+    case 4:
+      return "Night Elf";
+    case 5:
+      return "Undead";
+    case 6:
+      return "Tauren";
+    case 7:
+      return "Gnome";
+    case 8:
+      return "Troll";
+    case 9:
+      return "Goblin";
+    case 10:
+      return "Blood Elf";
+    case 11:
+      return "Draenei";
+    case 22:
+      return "Worgen";
+    case 24:
+      return "Pandaren";
+    case 25:
+      return "Pandaren";
+    case 26:
+      return "Pandaren";
     default:
       return "Unknown";
   }

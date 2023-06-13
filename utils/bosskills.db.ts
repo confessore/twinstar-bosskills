@@ -1,18 +1,47 @@
-import bosskills from "./bosskills.prisma";
+import bosskills_prisma from "./bosskills.prisma";
 
 export async function get_latest_boss_kills() {
-  let latest_boss_kills = await bosskills.boss_kills.findMany({ take: 25 });
-  let json = JSON.stringify(latest_boss_kills);
-  return json;
+  const latest_boss_kills = await bosskills_prisma.boss_kills.findMany({
+    select: { id: true, entry: true, guild: true, time: true, mode: true },
+    where: { hidden: false },
+    take: 50,
+  });
+  const json = JSON.stringify(latest_boss_kills);
+  return JSON.parse(json);
+}
+
+export async function get_boss_kills_rankings_guilds() {
+  const boss_kills_rankings_guilds =
+    await bosskills_prisma.boss_kills_rankings_guild.findMany();
+  const json = JSON.stringify(boss_kills_rankings_guilds);
+  return JSON.parse(json);
 }
 
 export async function get_boss_kill_players(id: number) {
-  let boss_kills_players = await bosskills.boss_kills_players.findMany({
-    where: { id },
-  });
-  let json = JSON.stringify(
+  const boss_kills_players = await bosskills_prisma.boss_kills_players.findMany(
+    {
+      where: { id },
+    }
+  );
+  const json = JSON.stringify(
     boss_kills_players,
     (key, value) => (typeof value === "bigint" ? value.toString() : value) // return everything else unchanged
   );
-  return json;
+  return JSON.parse(json);
+}
+
+export async function get_all_boss_kills_ids() {
+  const boss_kills_ids = await bosskills_prisma.boss_kills.findMany({
+    select: { id: true },
+    where: { hidden: false },
+  });
+  return boss_kills_ids;
+}
+
+export async function get_boss_kill_by_id(id: number) {
+  const boss_kills = await bosskills_prisma.boss_kills.findFirst({
+    where: { id },
+  });
+  const json = JSON.stringify(boss_kills);
+  return JSON.parse(json);
 }

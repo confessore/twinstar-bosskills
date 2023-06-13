@@ -3,29 +3,29 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex flex-col m-1 p-1">
-      <div className="flex m-1 p-1">TwinStar WoW Boss Kills</div>
-      <div className="flex flex-wrap m-1 p-1">
-        <Link href="/" className="m-1 p-1" prefetch={false}>
+    <div className="flex flex-col">
+      <div className="flex">TwinStar WoW Boss Kills</div>
+      <div className="flex flex-wrap">
+        <Link href="/" className="m-2" prefetch={false}>
           Home
         </Link>
-        <Link href="/latest" className="m-1 p-1" prefetch={false}>
+        <Link href="/latest" className="m-2" prefetch={false}>
           Latest
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/raids" className="m-2" prefetch={false}>
           Raids
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/characters" className="m-2" prefetch={false}>
           Characters
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/guilds" className="m-2" prefetch={false}>
           Guilds
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
+        <Link href="/loot" className="m-2" prefetch={false}>
           Loot
         </Link>
-        <Link href="" className="m-1 p-1" prefetch={false}>
-          Player Performance
+        <Link href="/performance" className="m-2" prefetch={false}>
+          Performance
         </Link>
       </div>
     </div>

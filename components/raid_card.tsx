@@ -10,7 +10,7 @@ type Props = {
 export default function RaidCard(props: Props) {
   return (
     <Link
-      href={`boss_kills/${props.value.toString()}`}
+      href={`boss_kills/${props.value.toString()}/${props.mode}`}
       className="m-0.5 flex flex-col"
       prefetch={false}
     >

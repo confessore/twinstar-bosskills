@@ -4,16 +4,16 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center">
+      <div className="flex items-center bg-white">
         <Image
           src="/twinstar.png"
           alt=""
           width={256}
           height={128}
-          className=""
+          className=''
         ></Image>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap bg-black text-white">
         <Link href="/" className="m-2" prefetch={false}>
           Home
         </Link>

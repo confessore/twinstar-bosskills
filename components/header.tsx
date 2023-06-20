@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center bg-white">
+      <div className="flex justify-center items-center bg-white">
         <Image
           src="/twinstar.png"
           alt=""

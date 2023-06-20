@@ -19,7 +19,7 @@ export default function Raids(props: Props) {
   return (
     <Layout>
       <Suspense fallback={Loading()}>
-        {props !== undefined && props.latest_boss_kills !== undefined && (
+        {props !== undefined && (
           <div className="flex flex-col">
             <div className="flex w-full flex-wrap justify-center">
               <RaidsWidget />

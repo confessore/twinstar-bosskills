@@ -1,5 +1,4 @@
-import { parse_boss } from "@/styles/colors";
-import Link from "next/link";
+import RaidCard from "./raid_card";
 
 type Props = {};
 
@@ -12,18 +11,16 @@ export default function RaidsWidget(props: Props) {
   return (
     <div className="m-0.5 flex w-96 max-w-full flex-col justify-center">
       <p className="m-0.5 text-xl font-bold">Raids</p>
-      <div>
+      <div className='flex flex-col'>
         <p>Mogu&apos;shan Vaults</p>
         {raids[0]?.map((value: number, index: number) => {
           return (
-            <Link
-              href={`boss_kills/${value.toString()}`}
-              className="m-0.5 flex flex-col"
-              prefetch={false}
-              key={index}
-            >
-              {parse_boss(value)}
-            </Link>
+              <RaidCard key={index} value={value} mode={3} />
+          );
+        })}
+        {raids[0]?.map((value: number, index: number) => {
+          return (
+              <RaidCard key={index} value={value} mode={4} />
           );
         })}
       </div>

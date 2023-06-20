@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="flex flex-col">
-      <div className="flex justify-center items-center bg-white">
+      <div className="flex items-center justify-center bg-white">
         <Image
           src="/twinstar.png"
           alt=""
           width={256}
           height={128}
-          className=''
+          className=""
         ></Image>
       </div>
       <div className="flex flex-wrap bg-black text-white">

@@ -28,7 +28,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "pages/boss_kills/[id].tsx"
+    "pages/boss_kill/[id].tsx",
+    "pages/boss_kills/[entry].tsx",
+    "components/loading.jsx"
   ],
   "exclude": ["node_modules"]
 }

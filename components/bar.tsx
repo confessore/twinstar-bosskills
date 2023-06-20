@@ -1,14 +1,11 @@
-import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
+import { boss_kills_players } from "@/prisma/bosskills";
 import Image from "next/image";
-import Link from "next/link";
 import {
   matchClassColor,
   parse_class,
   parse_class_image,
-  parse_talent_specialization,
   parse_talent_specialization_image,
 } from "@/styles/colors";
-import { characters } from "@/prisma/characters";
 
 type Props = {
   boss_kills_player: boss_kills_players;

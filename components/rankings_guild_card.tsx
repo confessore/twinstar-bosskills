@@ -1,12 +1,10 @@
-import { boss_kills, boss_kills_rankings_guild } from "@/prisma/bosskills";
-import Image from "next/image";
-import Link from "next/link";
+import { boss_kills_rankings_guild } from "@/prisma/bosskills";
 
 type Props = {
   boss_kills_rankings_guild: boss_kills_rankings_guild;
 };
 
-export default function BossKillsRankingsGuildCard(props: Props) {
+export default function RankingsGuildCard(props: Props) {
   return (
     <div className="m-0.5 flex items-center justify-between bg-slate-500">
       <div className="m-0.5 flex flex-col">

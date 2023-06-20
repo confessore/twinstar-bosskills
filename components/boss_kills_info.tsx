@@ -1,7 +1,4 @@
-import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
-import { useState } from "react";
-import { characters } from "@/prisma/characters";
-import Bar from "./bar";
+import { boss_kills } from "@/prisma/bosskills";
 import { parse_boss, parse_mode } from "@/styles/colors";
 
 type Props = {

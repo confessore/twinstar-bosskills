@@ -1,16 +1,15 @@
 import { boss_kills } from "@/prisma/bosskills";
 import { parse_boss, parse_mode } from "@/styles/colors";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
   boss_kills: boss_kills;
 };
 
-export default function LatestBossKillsCard(props: Props) {
+export default function BossKillsCard(props: Props) {
   return (
     <Link
-      href={`boss_kills/${props.boss_kills.id?.toString()}`}
+      href={`boss_kill/${props.boss_kills.id?.toString()}`}
       className="m-0.5 flex flex-col bg-slate-500"
       prefetch={false}
     >

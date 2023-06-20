@@ -45,3 +45,12 @@ export async function get_boss_kill_by_id(id: number) {
   const json = JSON.stringify(boss_kills);
   return JSON.parse(json);
 }
+
+export async function get_all_boss_kills_by_entry(entry: number) {
+  const boss_kills = await bosskills_prisma.boss_kills.findMany({
+    select: { id: true, entry: true, guild: true, time: true, mode: true },
+    where: { entry, hidden: false },
+  });
+  const json = JSON.stringify(boss_kills);
+  return JSON.parse(json);
+}

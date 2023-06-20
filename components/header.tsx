@@ -4,7 +4,15 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="flex flex-col">
-      <div className="flex">TwinStar WoW Boss Kills</div>
+      <div className="flex items-center">
+        <Image
+          src="/twinstar.png"
+          alt=""
+          width={256}
+          height={128}
+          className=""
+        ></Image>
+      </div>
       <div className="flex flex-wrap">
         <Link href="/" className="m-2" prefetch={false}>
           Home

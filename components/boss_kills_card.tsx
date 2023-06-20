@@ -9,7 +9,7 @@ type Props = {
 export default function BossKillsCard(props: Props) {
   return (
     <Link
-      href={`boss_kill/${props.boss_kills.id?.toString()}`}
+      href={`/boss_kill/${props.boss_kills.id?.toString()}`}
       className="m-0.5 flex flex-col bg-slate-500"
       prefetch={false}
     >

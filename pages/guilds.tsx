@@ -1,6 +1,6 @@
 import { boss_kills_rankings_guild } from "@/prisma/bosskills";
 import { get_boss_kills_rankings_guilds } from "@/utils/bosskills.db";
-import BossKillsRankingsGuildWidget from "@/components/rankings_guild_widget";
+import RankingsGuildWidget from "@/components/rankings_guild_widget";
 import Loading from "@/components/loading";
 import { Suspense } from "react";
 
@@ -31,7 +31,7 @@ export default function Guilds(props: Props) {
         props.boss_kills_rankings_guilds !== undefined && (
           <div className="flex flex-wrap">
             <div className="flex w-full flex-wrap justify-center">
-              <BossKillsRankingsGuildWidget
+              <RankingsGuildWidget
                 boss_kills_rankings_guilds={props.boss_kills_rankings_guilds}
               />
             </div>

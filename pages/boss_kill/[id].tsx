@@ -3,8 +3,6 @@ import {
   get_boss_kill_by_id,
   get_boss_kill_players as get_boss_kills_players,
 } from "@/utils/bosskills.db";
-import "@/app/globals.css";
-import Layout from "@/components/layout";
 import DamageDoneWidget from "@/components/damage_done_widget";
 import HealingDoneWidget from "@/components/healing_done_widget";
 import DamageTakenWidget from "@/components/damage_taken_widget";
@@ -51,106 +49,104 @@ export default function Page(props: Props) {
   const [tab, setTab] = useState(0);
 
   return (
-    <Layout>
-      <Suspense fallback={Loading()}>
-        {props !== undefined && props.boss_kills_players !== undefined && (
-          <div className="flex flex-col">
-            <div className="flex w-full flex-wrap justify-center">
-              <button className={`${button_style}`} onClick={() => setTab(0)}>
-                Damage Done
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(1)}>
-                Healing Done
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(5)}>
-                Dispels
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(2)}>
-                Damage Taken
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(3)}>
-                Healing Taken
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(4)}>
-                Interrupts
-              </button>
-              <button className={`${button_style}`} onClick={() => setTab(6)}>
-                Overhealing Done
-              </button>
-            </div>
-            {tab === 0 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <DamageDoneWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 1 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <HealingDoneWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 2 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <DamageTakenWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 3 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <HealingTakenWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 4 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <InterruptsWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 5 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <DispelsWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
-            {tab === 6 && (
-              <div className="flex w-full flex-wrap justify-center">
-                <BossKillsInfo boss_kills={props.boss_kills} />
-                <OverhealingDoneWidget
-                  boss_kills={props.boss_kills}
-                  boss_kills_players={props.boss_kills_players}
-                  characters={props.characters}
-                />
-              </div>
-            )}
+    <Suspense fallback={Loading()}>
+      {props !== undefined && props.boss_kills_players !== undefined && (
+        <div className="flex flex-col">
+          <div className="flex w-full flex-wrap justify-center">
+            <button className={`${button_style}`} onClick={() => setTab(0)}>
+              Damage Done
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(1)}>
+              Healing Done
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(5)}>
+              Dispels
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(2)}>
+              Damage Taken
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(3)}>
+              Healing Taken
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(4)}>
+              Interrupts
+            </button>
+            <button className={`${button_style}`} onClick={() => setTab(6)}>
+              Overhealing Done
+            </button>
           </div>
-        )}
-      </Suspense>
-    </Layout>
+          {tab === 0 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <DamageDoneWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 1 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <HealingDoneWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 2 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <DamageTakenWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 3 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <HealingTakenWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 4 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <InterruptsWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 5 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <DispelsWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+          {tab === 6 && (
+            <div className="flex w-full flex-wrap justify-center">
+              <BossKillsInfo boss_kills={props.boss_kills} />
+              <OverhealingDoneWidget
+                boss_kills={props.boss_kills}
+                boss_kills_players={props.boss_kills_players}
+                characters={props.characters}
+              />
+            </div>
+          )}
+        </div>
+      )}
+    </Suspense>
   );
 }

@@ -1,5 +1,4 @@
 import Header from "@/components/header";
-import "@/app/globals.css";
 import { Akshar } from "next/font/google";
 
 const akshar = Akshar({ subsets: ["latin"] });

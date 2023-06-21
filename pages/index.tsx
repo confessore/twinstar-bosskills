@@ -1,30 +1,35 @@
-import { boss_kills } from "@/prisma/bosskills";
-import { Suspense } from "react";
-import { get_all_boss_kills_by_entry } from "@/utils/bosskills.db";
 import BossKillsWidget from "@/components/boss_kills_widget";
 import Loading from "@/components/loading";
+import { boss_kills } from "@/prisma/bosskills";
+import { get_latest_boss_kills } from "@/utils/bosskills.db";
+import { Suspense } from "react";
+
+export const metadata = {
+  title: "TwinStar WoW Boss Kills",
+  description: "",
+};
 
 type Props = {
   boss_kills: boss_kills[];
 };
 
-export async function getServerSideProps(context: any) {
-  const { params } = context;
-  const entry = parseInt(params.entry);
+export const getServerSideProps = async (context: any) => {
   let boss_kills;
   try {
-    boss_kills = await get_all_boss_kills_by_entry(entry);
+    boss_kills = await get_latest_boss_kills();
   } catch {
     return {
       props: {},
     };
   }
   return {
-    props: { boss_kills }, // will be passed to the page component as props
+    props: {
+      boss_kills,
+    },
   };
-}
+};
 
-export default function Page(props: Props) {
+export default function Home(props: Props) {
   return (
     <Suspense fallback={Loading()}>
       {props !== undefined && props.boss_kills !== undefined && (

@@ -5,6 +5,8 @@ type Props = {};
 const raids = [
   // Mogu'shan Vaults
   [59915, 60009, 60143, 60410, 60701, 60399],
+  // Heart of Fear
+  [62511, 62543, 62837, 62980, 62397]
 ];
 
 export default function RaidsWidget(props: Props) {
@@ -17,6 +19,15 @@ export default function RaidsWidget(props: Props) {
           return <RaidCard key={index} value={value} mode={3} />;
         })}
         {raids[0]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={4} />;
+        })}
+      </div>
+      <div className="flex flex-col">
+        <p>Heart of Fear</p>
+        {raids[1]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={3} />;
+        })}
+        {raids[1]?.map((value: number, index: number) => {
           return <RaidCard key={index} value={value} mode={4} />;
         })}
       </div>

@@ -78,6 +78,16 @@ export const parse_boss = (entry: number) => {
       return "Zian of the Endless Shadow";
     case 60399:
       return "Qin-xi";
+    case 62511:
+      return "Amber-Shaper Un'Sok"
+    case 62543:
+      return "Blade Lord Ta'Yak"
+    case 62837:
+      return "Grand Empress Shek'zeer"
+    case 62980:
+      return "Imperial Vizier Zor'lok"
+    case 62397:
+      return "Wind Lord Mel'jarak"
     default:
       return entry.toString();
   }

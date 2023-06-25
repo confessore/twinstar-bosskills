@@ -37,6 +37,9 @@ export async function get_all_boss_kills_ids() {
   const boss_kills_ids = await bosskills_prisma.boss_kills.findMany({
     select: { id: true },
     where: { hidden: false },
+    orderBy: {
+      time: 'desc'
+    },
   });
   return boss_kills_ids;
 }
@@ -53,6 +56,9 @@ export async function get_all_boss_kills_by_entry(entry: number) {
   const boss_kills = await bosskills_prisma.boss_kills.findMany({
     select: { id: true, entry: true, guild: true, time: true, mode: true },
     where: { entry, hidden: false },
+    orderBy: {
+      time: 'desc'
+    },
   });
   const json = JSON.stringify(boss_kills);
   return JSON.parse(json);
@@ -65,6 +71,9 @@ export async function get_all_boss_kills_by_entry_and_mode(
   const boss_kills = await bosskills_prisma.boss_kills.findMany({
     select: { id: true, entry: true, guild: true, time: true, mode: true },
     where: { entry, mode, hidden: false },
+    orderBy: {
+      time: 'desc'
+    },
   });
   const json = JSON.stringify(boss_kills);
   return JSON.parse(json);

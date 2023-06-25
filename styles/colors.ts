@@ -56,9 +56,15 @@ export const matchClassColor = (playerClass: string) => {
 export const parse_mode = (mode: number) => {
   switch (mode) {
     case 3:
-      return "Standard";
+      return "Normal 10";
     case 4:
-      return "Hard";
+      return "Normal 25";
+    case 5:
+      return "Hard 10";
+    case 6:
+      return "Hard 25";
+    case 7:
+      return "LFR"
     default:
       return "Unknown";
   }

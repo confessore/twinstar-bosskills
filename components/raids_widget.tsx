@@ -21,6 +21,15 @@ export default function RaidsWidget(props: Props) {
         {raids[0]?.map((value: number, index: number) => {
           return <RaidCard key={index} value={value} mode={4} />;
         })}
+        {raids[0]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={5} />;
+        })}
+        {raids[0]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={6} />;
+        })}
+        {raids[0]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={7} />;
+        })}
       </div>
       <div className="flex flex-col">
         <p>Heart of Fear</p>
@@ -29,6 +38,15 @@ export default function RaidsWidget(props: Props) {
         })}
         {raids[1]?.map((value: number, index: number) => {
           return <RaidCard key={index} value={value} mode={4} />;
+        })}
+        {raids[1]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={5} />;
+        })}
+        {raids[1]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={6} />;
+        })}
+        {raids[1]?.map((value: number, index: number) => {
+          return <RaidCard key={index} value={value} mode={7} />;
         })}
       </div>
     </div>

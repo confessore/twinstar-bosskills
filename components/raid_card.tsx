@@ -1,5 +1,5 @@
 import { boss_kills } from "@/prisma/bosskills";
-import { parse_boss, parse_mode } from "@/styles/colors";
+import { parse_boss, parse_mode, parse_mode_color } from "@/styles/colors";
 import Link from "next/link";
 
 type Props = {
@@ -16,7 +16,7 @@ export default function RaidCard(props: Props) {
     >
       <div
         className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10"
-        style={{ backgroundColor: props.mode === 3 ? "#2276fc" : "#ef4444" }}
+        style={{ backgroundColor: parse_mode_color(props.mode) }}
       ></div>
       <p className="m-0.5 text-start text-xs">
         <strong>{""}</strong>
@@ -26,7 +26,7 @@ export default function RaidCard(props: Props) {
       </p>
       <p
         className={`m-0.5 text-end text-xl font-bold`}
-        style={{ color: props.mode === 3 ? "#2276fc" : "#ef4444" }}
+        style={{ color: parse_mode_color(props.mode) }}
       >
         {parse_mode(props.mode)}
       </p>

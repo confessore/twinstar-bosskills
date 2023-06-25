@@ -81,13 +81,13 @@ export const parse_boss = (entry: number) => {
     case 62980:
       return "Imperial Vizier Zor'lok"
     case 62543:
-      return "Blade Lord Ta'Yak"
+      return "Blade Lord Ta'yak"
     case 62164:
       return "Garalon"
     case 62397:
       return "Wind Lord Mel'jarak"
     case 62511:
-      return "Amber-Shaper Un'Sok"
+      return "Amber-Shaper Un'sok"
     case 62837:
       return "Grand Empress Shek'zeer"
     default:

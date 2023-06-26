@@ -15,7 +15,7 @@ export default function RankingsGuildCard(props: Props) {
     >
       <div className="m-0.5 flex flex-col">
         <div
-          className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10"
+          className="absolute h-[72px] w-96 max-w-full border-2 border-black opacity-10"
           style={{
             backgroundColor: parse_rank_color(
               props.boss_kills_rankings_guild.ranking

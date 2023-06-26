@@ -14,25 +14,25 @@ export default function Header() {
         ></Image>
       </div>
       <div className="flex flex-wrap bg-black text-white">
-        <Link href="/" className="m-2" prefetch={false}>
+        <Link href="/" className="m-2 hover:text-amber-300" prefetch={false}>
           Home
         </Link>
-        <Link href="/latest" className="m-2" prefetch={false}>
+        <Link href="/latest" className="m-2 hover:text-amber-300" prefetch={false}>
           Latest
         </Link>
-        <Link href="/raids" className="m-2" prefetch={false}>
+        <Link href="/raids" className="m-2 hover:text-amber-300" prefetch={false}>
           Raids
         </Link>
-        <Link href="/characters" className="m-2" prefetch={false}>
+        <Link href="/characters" className="m-2 hover:text-amber-300" prefetch={false}>
           Characters
         </Link>
-        <Link href="/guilds" className="m-2" prefetch={false}>
+        <Link href="/guilds" className="m-2 hover:text-amber-300" prefetch={false}>
           Guilds
         </Link>
-        <Link href="/loot" className="m-2" prefetch={false}>
+        <Link href="/loot" className="m-2 hover:text-amber-300" prefetch={false}>
           Loot
         </Link>
-        <Link href="/performance" className="m-2" prefetch={false}>
+        <Link href="/performance" className="m-2 hover:text-amber-300" prefetch={false}>
           Performance
         </Link>
       </div>

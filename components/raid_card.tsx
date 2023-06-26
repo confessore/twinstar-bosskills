@@ -15,7 +15,7 @@ export default function RaidCard(props: Props) {
       prefetch={false}
     >
       <div
-        className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10"
+        className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10 hover:animate-pulse"
         style={{ backgroundColor: parse_mode_color(props.mode) }}
       ></div>
       <p className="m-0.5 text-start text-xs">

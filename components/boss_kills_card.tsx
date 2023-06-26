@@ -14,7 +14,7 @@ export default function BossKillsCard(props: Props) {
       prefetch={false}
     >
       <div
-        className="absolute h-[120px] w-96 max-w-full border-2 border-black opacity-10"
+        className="absolute h-[120px] w-96 max-w-full border-2 border-black opacity-10 hover:animate-pulse"
         style={{ backgroundColor: parse_mode_color(props.boss_kills.mode) }}
       ></div>
       <p className="m-0.5 text-start text-xs">

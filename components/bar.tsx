@@ -19,7 +19,7 @@ export default function Bar(props: Props) {
   return (
     <div className="flex w-full flex-col">
       <div
-        className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10"
+        className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10 hover:animate-pulse"
         style={{
           backgroundColor: matchClassColor(
             parse_class(props.boss_kills_player.talent_spec)

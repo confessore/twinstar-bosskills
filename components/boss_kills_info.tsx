@@ -1,5 +1,5 @@
 import { boss_kills } from "@/prisma/bosskills";
-import { parse_boss, parse_mode } from "@/styles/colors";
+import { parse_boss, parse_mode, parse_mode_color } from "@/styles/colors";
 
 type Props = {
   boss_kills: boss_kills;
@@ -8,6 +8,10 @@ type Props = {
 export default function BossKillsInfo(props: Props) {
   return (
     <div className="m-0.5 flex w-96 max-w-full flex-col text-start">
+      <div
+        className="absolute h-40 w-96 max-w-full border-2 border-black opacity-10 hover:animate-pulse"
+        style={{ backgroundColor: parse_mode_color(props.boss_kills.mode) }}
+      ></div>
       <p className="m-0.5 text-xs">
         <strong>{props.boss_kills.time?.toString()}</strong>
       </p>

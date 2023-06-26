@@ -53,16 +53,15 @@ model boss_kills_deaths {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model boss_kills_loot {
-  id               Int
+  id               Int        
   itemId           Int        @default(0) @logs.UnsignedInt
   count            Int        @default(0) @logs.UnsignedSmallInt
   randomPropertyId Int        @default(0)
   randomSuffixId   Int        @default(0) @logs.UnsignedInt
   boss_kills       boss_kills @relation(fields: [id], references: [id], onDelete: Cascade, map: "boss_kills_loot_ibfk_1")
 
-  @@index([id], map: "id")
+  @@id([id, itemId])
   @@index([itemId], map: "itemId")
-  @@ignore
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -114,7 +113,8 @@ model boss_kills_progress {
   raid2    Int       @default(0)
   raid3    Int       @default(0)
 
-  @@ignore
+  @@id([mode, season])
+  @@index([guild], map: "guild")
 }
 
 model boss_kills_progress_cache {

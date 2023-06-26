@@ -6,6 +6,7 @@ import {
   parse_class_image,
   parse_talent_specialization_image,
 } from "@/styles/colors";
+import Link from "next/link";
 
 type Props = {
   boss_kills_player: boss_kills_players;
@@ -17,7 +18,11 @@ type Props = {
 
 export default function Bar(props: Props) {
   return (
-    <div className="flex w-full flex-col">
+    <Link
+      href={`/character/${props.character_name}`}
+      prefetch={false}
+      className="flex w-full flex-col"
+    >
       <div
         className="absolute h-20 w-96 max-w-full border-2 border-black opacity-10 hover:animate-pulse"
         style={{
@@ -68,6 +73,6 @@ export default function Bar(props: Props) {
           {props.boss_kills_player.avg_item_lvl}ilvl
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

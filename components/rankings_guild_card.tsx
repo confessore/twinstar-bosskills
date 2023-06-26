@@ -1,5 +1,6 @@
 import { boss_kills_rankings_guild } from "@/prisma/bosskills";
 import { parse_mode, parse_rank_color } from "@/styles/colors";
+import Link from "next/link";
 
 type Props = {
   boss_kills_rankings_guild: boss_kills_rankings_guild;
@@ -7,7 +8,9 @@ type Props = {
 
 export default function RankingsGuildCard(props: Props) {
   return (
-    <div
+    <Link
+      href={`/guild/${props.boss_kills_rankings_guild.guild}`}
+      prefetch={false}
       className="m-0.5 flex items-center justify-between"
       style={{
         color: parse_rank_color(props.boss_kills_rankings_guild.ranking),
@@ -43,6 +46,6 @@ export default function RankingsGuildCard(props: Props) {
           <strong>{props.boss_kills_rankings_guild.ranking?.toString()}</strong>
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -8,3 +8,10 @@ export async function get_characters(boss_kills_players: boss_kills_players[]) {
   });
   return result;
 }
+
+export async function get_character(name: string) {
+  const result = await characters_prisma.characters.findFirstOrThrow({
+    where: { name },
+  });
+  return result;
+}

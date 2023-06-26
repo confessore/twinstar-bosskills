@@ -29,6 +29,15 @@ export async function get_boss_kills_rankings_guilds() {
   return JSON.parse(json);
 }
 
+export async function get_boss_kills_rankings_guild(name: string) {
+  const boss_kills_rankings_guilds =
+    await bosskills_prisma.boss_kills_rankings_guild.findFirstOrThrow({
+      where: { guild: name },
+    });
+  const json = JSON.stringify(boss_kills_rankings_guilds);
+  return JSON.parse(json);
+}
+
 export async function get_boss_kill_players(id: number) {
   const boss_kills_players = await bosskills_prisma.boss_kills_players.findMany(
     {
@@ -54,7 +63,7 @@ export async function get_all_boss_kills_ids() {
 }
 
 export async function get_boss_kill_by_id(id: number) {
-  const boss_kills = await bosskills_prisma.boss_kills.findFirst({
+  const boss_kills = await bosskills_prisma.boss_kills.findFirstOrThrow({
     where: { id },
   });
   const json = JSON.stringify(boss_kills);

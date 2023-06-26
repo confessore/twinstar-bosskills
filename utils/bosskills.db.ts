@@ -5,7 +5,7 @@ export async function get_latest_boss_kills() {
     select: { id: true, entry: true, guild: true, time: true, mode: true },
     where: { hidden: false },
     orderBy: {
-      time: 'desc'
+      time: "desc",
     },
     take: 50,
   });
@@ -38,7 +38,7 @@ export async function get_all_boss_kills_ids() {
     select: { id: true },
     where: { hidden: false },
     orderBy: {
-      time: 'desc'
+      time: "desc",
     },
   });
   return boss_kills_ids;
@@ -57,7 +57,7 @@ export async function get_all_boss_kills_by_entry(entry: number) {
     select: { id: true, entry: true, guild: true, time: true, mode: true },
     where: { entry, hidden: false },
     orderBy: {
-      time: 'desc'
+      time: "desc",
     },
   });
   const json = JSON.stringify(boss_kills);
@@ -72,7 +72,7 @@ export async function get_all_boss_kills_by_entry_and_mode(
     select: { id: true, entry: true, guild: true, time: true, mode: true },
     where: { entry, mode, hidden: false },
     orderBy: {
-      time: 'desc'
+      time: "desc",
     },
   });
   const json = JSON.stringify(boss_kills);

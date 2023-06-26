@@ -53,6 +53,33 @@ export const matchClassColor = (playerClass: string) => {
   }
 };
 
+export const parse_rank_color = (mode: number) => {
+  switch (mode) {
+    case 1:
+      return "#BE123C";
+    case 2:
+      return "#BE185D";
+    case 3:
+      return "#A21CAF";
+    case 4:
+      return "#7E22CE";
+    case 5:
+      return "#6D28D9";
+    case 6:
+      return "#4338CA";
+    case 7:
+      return "#1D4ED8";
+    case 8:
+      return "#0369A1";
+    case 9:
+      return "#0E7490";
+    case 10:
+      return "#0F766E";
+    default:
+      return "#047857";
+  }
+};
+
 export const parse_mode_color = (mode: number) => {
   switch (mode) {
     case 3:
@@ -64,7 +91,7 @@ export const parse_mode_color = (mode: number) => {
     case 6:
       return "#BE123C";
     case 7:
-      return "#047857"
+      return "#047857";
     default:
       return "#334155";
   }
@@ -81,7 +108,7 @@ export const parse_mode = (mode: number) => {
     case 6:
       return "Hard 25";
     case 7:
-      return "LFR"
+      return "LFR";
     default:
       return "Unknown";
   }
@@ -102,17 +129,17 @@ export const parse_boss = (entry: number) => {
     case 60399:
       return "Qin-xi";
     case 62980:
-      return "Imperial Vizier Zor'lok"
+      return "Imperial Vizier Zor'lok";
     case 62543:
-      return "Blade Lord Ta'yak"
+      return "Blade Lord Ta'yak";
     case 62164:
-      return "Garalon"
+      return "Garalon";
     case 62397:
-      return "Wind Lord Mel'jarak"
+      return "Wind Lord Mel'jarak";
     case 62511:
-      return "Amber-Shaper Un'sok"
+      return "Amber-Shaper Un'sok";
     case 62837:
-      return "Grand Empress Shek'zeer"
+      return "Grand Empress Shek'zeer";
     default:
       return entry.toString();
   }

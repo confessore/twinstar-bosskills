@@ -6,7 +6,7 @@ const raids = [
   // Mogu'shan Vaults
   [59915, 60009, 60143, 60410, 60701, 60399],
   // Heart of Fear
-  [62980, 62543, 62164, 62397, 62511, 62837]
+  [62980, 62543, 62164, 62397, 62511, 62837],
 ];
 
 export default function RaidsWidget(props: Props) {

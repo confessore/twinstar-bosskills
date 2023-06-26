@@ -56,17 +56,17 @@ export const matchClassColor = (playerClass: string) => {
 export const parse_mode_color = (mode: number) => {
   switch (mode) {
     case 3:
-      return "#2276FC";
+      return "#4338CA";
     case 4:
-      return "#1d4ed8";
+      return "#312E81";
     case 5:
-      return "#ef4444";
+      return "#BE123C";
     case 6:
-      return "#b91c1c";
+      return "#881337";
     case 7:
-      return "#22c55e"
+      return "#047857"
     default:
-      return "#ffffff";
+      return "#334155";
   }
 };
 

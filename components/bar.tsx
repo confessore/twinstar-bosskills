@@ -30,8 +30,8 @@ export default function Bar(props: Props) {
         <Image
           src={parse_class_image(props.boss_kills_player.talent_spec)}
           alt=""
-          width={32}
-          height={32}
+          width={24}
+          height={24}
           className="m-0.5 rounded-full"
         />
         <Image
@@ -39,8 +39,8 @@ export default function Bar(props: Props) {
             props.boss_kills_player.talent_spec
           )}
           alt=""
-          width={32}
-          height={32}
+          width={24}
+          height={24}
           className="m-0.5 rounded-full"
         />
         <div className="m-0.5 text-lg font-bold">{props.character_name}</div>

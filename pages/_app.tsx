@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 //import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 //import { PayPalScriptOptions } from "@paypal/paypal-js/types/script-options";
 import Layout from "../components/layout";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 //import { Analytics } from '@vercel/analytics/react';
 //import { GoogleAnalytics } from 'nextjs-google-analytics';
 
@@ -14,6 +15,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <Component {...pageProps} />
         </>
       </Layout>
+      <GoogleAnalytics trackPageViews />
       <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1561048054448608"

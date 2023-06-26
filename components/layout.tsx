@@ -12,9 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <meta name="format-detection" content="telephone=no" />
       <div className={`${main} ${main_dark} ${akshar.className}`}>
         <Header />
-        <div className="h-32"></div>
         <div className="">{children}</div>
-        <div className="h-32"></div>
       </div>
     </>
   );

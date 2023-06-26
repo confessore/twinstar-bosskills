@@ -14,6 +14,11 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <Component {...pageProps} />
         </>
       </Layout>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1561048054448608"
+        crossOrigin="anonymous"
+      ></script>
     </>
   );
 }

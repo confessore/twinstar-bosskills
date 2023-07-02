@@ -1,6 +1,7 @@
-import { boss_kills, boss_kills_players } from "@/prisma/bosskills";
+import { boss_kills, boss_kills_loot, boss_kills_players } from "@/prisma/bosskills";
 import {
   get_boss_kill_by_id,
+  get_boss_kill_loot,
   get_boss_kill_players as get_boss_kills_players,
 } from "@/utils/bosskills.db";
 import DamageDoneWidget from "@/components/damage_done_widget";
@@ -20,6 +21,7 @@ type Props = {
   boss_kills: boss_kills;
   boss_kills_players: boss_kills_players[];
   characters: characters[];
+  loot: boss_kills_loot[];
 };
 
 export async function getServerSideProps(context: any) {
@@ -28,17 +30,19 @@ export async function getServerSideProps(context: any) {
   let boss_kills;
   let boss_kills_players;
   let characters;
+  let loot;
   try {
     boss_kills = await get_boss_kill_by_id(id);
     boss_kills_players = await get_boss_kills_players(id);
     characters = await get_characters(boss_kills_players);
+    loot = await get_boss_kill_loot(id);
   } catch {
     return {
       props: {},
     };
   }
   return {
-    props: { boss_kills, boss_kills_players, characters }, // will be passed to the page component as props
+    props: { boss_kills, boss_kills_players, characters, loot }, // will be passed to the page component as props
   };
 }
 
@@ -75,6 +79,11 @@ export default function Page(props: Props) {
               Overhealing Done
             </button>
           </div>
+          {props.loot.map((x, index) => {
+            return <div key={index} className=''>
+              {x.itemId}
+            </div>
+          })}
           {tab === 0 && (
             <div className="flex w-full flex-wrap justify-center">
               <BossKillsInfo boss_kills={props.boss_kills} />

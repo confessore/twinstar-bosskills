@@ -100,9 +100,18 @@ export async function get_all_boss_kills_by_entry_and_mode(
 export async function get_loot_count(
   itemId: number,
 ) {
-  const boss_kills = await bosskills_prisma.boss_kills_loot.count({
+  const count = await bosskills_prisma.boss_kills_loot.count({
     where: { itemId },
   });
-  const json = JSON.stringify(boss_kills);
+  return count;
+}
+
+export async function get_boss_kill_loot(
+  id: number,
+) {
+  const loot = await bosskills_prisma.boss_kills_loot.findMany({
+    where: { id },
+  });
+  const json = JSON.stringify(loot);
   return JSON.parse(json);
 }

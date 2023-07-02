@@ -33,11 +33,11 @@ export default function Loot(props: Props) {
       try {
         getIcon(87209).then((url) => {
           setSrc(url);
-          console.log(url)
         })
       } catch {
 
       } finally {
+        URL.revokeObjectURL(src);
         setLoaded(true);
       }
     }

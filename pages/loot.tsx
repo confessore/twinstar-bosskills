@@ -34,24 +34,23 @@ const itemIds = [
 export default function Loot(props: Props) {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [sources, setSources] = useState(new Array<string>())
+  const [source, setSource] = useState('/twinstar.png')
   const [calling, setCalling] = useState(false)
 
   useEffect(() => {
     if (!loaded && !loading) {
       setLoading(true);
       try {
-        for (let i = 0; i < itemIds.length; i++) {
-          getIconUrl(itemIds[i]).then((url) => {
-            sources.push(url);
-            setSources(sources);
-          })
+        const fn = async () => {
+          const url = await getIconUrl(itemIds[0]);
+          setSource(url );
         }
+        fn();
       } catch {
-
+        console.log(console.error);
       } finally {
         for (let i = 0; i < itemIds.length; i++) {
-          URL.revokeObjectURL(sources[i]);
+          URL.revokeObjectURL(source);
         }
         setLoading(false);
         setLoaded(true);
@@ -61,11 +60,12 @@ export default function Loot(props: Props) {
   return (
     <Suspense fallback={Loading()}>
       {props !== undefined && props.loot_count !== undefined && (
+
         <div className="flex flex-wrap">
           <div className="flex w-full flex-wrap justify-center">{props.loot_count} instances of {props.item['itemSparse']['Name']} exist</div>
-          {loaded && !loading && sources.length > 0 && (
-          sources.map((source, index) => 
-             (<Image key={index} src={source} alt="" width={64} height={64} />)))}
+          {loaded && !loading && 
+          
+             <Image src={source} alt="" width={64} height={64} />}
         </div>
       )}
     </Suspense>

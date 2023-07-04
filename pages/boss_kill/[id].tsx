@@ -16,6 +16,7 @@ import { Suspense, useState } from "react";
 import BossKillsInfo from "@/components/boss_kills_info";
 import OverhealingDoneWidget from "@/components/overhealing_done_widget";
 import Loading from "@/components/loading";
+import ItemIcon from "@/components/item_icon";
 
 type Props = {
   boss_kills: boss_kills;
@@ -79,11 +80,11 @@ export default function Page(props: Props) {
               Overhealing Done
             </button>
           </div>
-          {props.loot.map((x, index) => {
-            return <div key={index} className=''>
-              {x.itemId}
-            </div>
-          })}
+          <div className="flex justify-center items-center">
+            {props.loot.map((boss_kills_loot, index) => {
+              return (<ItemIcon key={index} itemId={boss_kills_loot.itemId} />);
+            })}
+          </div>
           {tab === 0 && (
             <div className="flex w-full flex-wrap justify-center">
               <BossKillsInfo boss_kills={props.boss_kills} />

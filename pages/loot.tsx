@@ -3,6 +3,7 @@ import { boss_kills_loot } from "@/prisma/bosskills";
 import { get_loot_count } from "@/utils/bosskills.db";
 import { Suspense, useEffect, useState } from "react";
 import Image from 'next/image'
+import ItemIcon from "@/components/item_icon";
 
 type Props = {
   item: any;
@@ -32,40 +33,15 @@ const itemIds = [
 ]
 
 export default function Loot(props: Props) {
-  const [loaded, setLoaded] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [source, setSource] = useState('/twinstar.png')
-  const [calling, setCalling] = useState(false)
 
-  useEffect(() => {
-    if (!loaded && !loading) {
-      setLoading(true);
-      try {
-        const fn = async () => {
-          const url = await getIconUrl(itemIds[0]);
-          setSource(url );
-        }
-        fn();
-      } catch {
-        console.log(console.error);
-      } finally {
-        for (let i = 0; i < itemIds.length; i++) {
-          URL.revokeObjectURL(source);
-        }
-        setLoading(false);
-        setLoaded(true);
-      }
-    }
-  }, [])
   return (
     <Suspense fallback={Loading()}>
       {props !== undefined && props.loot_count !== undefined && (
-
         <div className="flex flex-wrap">
           <div className="flex w-full flex-wrap justify-center">{props.loot_count} instances of {props.item['itemSparse']['Name']} exist</div>
-          {loaded && !loading && 
-          
-             <Image src={source} alt="" width={64} height={64} />}
+          {itemIds.map((itemId, index) => {
+            return (<ItemIcon key={index} itemId={itemId} />);
+          })} 
         </div>
       )}
     </Suspense>
